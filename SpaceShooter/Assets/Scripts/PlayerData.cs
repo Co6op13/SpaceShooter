@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerData : MonoBehaviour
+public class PlayerData : MonoBehaviour, IMovable, IMortal, IInput
 {
     [SerializeField] private float maxMovementSpeed;
     [SerializeField] private float speedFactor; //baf debaff coefficient

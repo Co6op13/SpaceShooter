@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent (typeof(Rigidbody2D))]
+[RequireComponent (typeof(Rigidbody2D), typeof(IMovable))]
 public class MoveController : MonoBehaviour
 {
-    private PlayerData data;
+    private IMovable dataObject;
     private Rigidbody2D rb;
     private void Awake()
     {
-        data = GetComponent<PlayerData>();
+        dataObject = GetComponent<IMovable>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -20,6 +20,6 @@ public class MoveController : MonoBehaviour
 
     private void Move()
     {
-        rb.velocity = data.Direction * data.CurrentMovementSpeed;
+        rb.velocity = dataObject.Direction * dataObject.CurrentMovementSpeed;
     }
 }

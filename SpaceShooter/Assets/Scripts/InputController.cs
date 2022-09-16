@@ -4,17 +4,23 @@ using UnityEngine;
 
 public class InputController : MonoBehaviour
 {
-    private PlayerData data;
+    private IInput dataObject;
+
 
     private void Awake()
     {
-        data = GetComponent<PlayerData>();
+        dataObject = GetComponent<IInput>();
     }
 
 
     void Update()
     {
-        data.Direction = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), data.Direction.z);
+        GetDirection();
+    }
+
+    private void GetDirection()
+    {
+        dataObject.Direction = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), dataObject.Direction.z);
     }
 
 

@@ -87,7 +87,7 @@
     },
     "com.unity.burst": {
       "version": "1.6.6",
-      "depth": 3,
+      "depth": 1,
       "source": "registry",
       "dependencies": {
         "com.unity.mathematics": "1.2.1"
@@ -224,6 +224,15 @@
         "com.unity.modules.jsonserialize": "1.0.0"
       },
       "url": "https://packages.unity.com"
+    },
+    "com.vvrvvd.spline-editor": {
+      "version": "https://github.com/vvrvvd/Unity-Spline-Editor.git#upm",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.burst": "1.4.8"
+      },
+      "hash": "b737b751d1565a07bd139d8b1f5b8c2280526db3"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

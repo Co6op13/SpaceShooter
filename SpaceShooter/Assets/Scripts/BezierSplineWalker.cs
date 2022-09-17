@@ -1,12 +1,13 @@
+using SplineEditor;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SplineWalker : MonoBehaviour
+public class BezierSplineWalker : MonoBehaviour
 {
     [SerializeField] private bool isActiv = false;
     const float normalizedSpeed = 0.01f;
-    [SerializeField] private SplineWalkerMode mode;    
+    [SerializeField] private BezierSplineWalkerMode mode;    
     [SerializeField] private BezierSpline path;
     [SerializeField] float speedMovement;
     [SerializeField] private bool lookForward;
@@ -35,11 +36,11 @@ public class SplineWalker : MonoBehaviour
                 progress += speedMovement * normalizedSpeed * Time.deltaTime;
                 if (progress > 1f)
                 {
-                    if (mode == SplineWalkerMode.Once)
+                    if (mode == BezierSplineWalkerMode.Once)
                     {
                         progress = 1f;
                     }
-                    else if (mode == SplineWalkerMode.Loop)
+                    else if (mode == BezierSplineWalkerMode.Loop)
                     {
                         progress -= 1f;
                     }

@@ -6,4 +6,5 @@ public interface IMovable
 {
     float CurrentMovementSpeed { get; set; }
     Vector3 Direction { get; set; }
+    float SpeedFactor { get; set; }
 }

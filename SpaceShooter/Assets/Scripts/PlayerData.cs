@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerData : MonoBehaviour, IMovable, IMortal, IInput
 {
     [SerializeField] private float maxMovementSpeed;
@@ -36,6 +37,7 @@ public class PlayerData : MonoBehaviour, IMovable, IMortal, IInput
         set => direction = value; 
     }
     public bool IsShooting { get => isShooting; set => isShooting = value; }
+    public float SpeedFactor { get => speedFactor; set => speedFactor = value; }
 
     private void Awake()
     {

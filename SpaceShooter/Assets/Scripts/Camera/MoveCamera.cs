@@ -7,6 +7,8 @@ public class MoveCamera : MonoBehaviour
     [SerializeField] private Vector3 cameraDirection;
     private IMovable dataObject;
 
+    public Vector3 CameraDirection { get => cameraDirection; }
+
     private void Awake()
     {
         dataObject = GetComponent<IMovable>();

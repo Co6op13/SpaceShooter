@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IMovable 
 {
-    float CurrentMovementSpeed { get; set; }
+    float CurrentMovementSpeed { get;  }
     Vector3 Direction { get; set; }
     float SpeedFactor { get; set; }
 }

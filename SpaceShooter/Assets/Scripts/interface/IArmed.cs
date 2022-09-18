@@ -2,10 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IInput
+public interface IArmed 
 {
-    Vector3 Direction { get; set; }
-    bool IsDash { get; set; }
     bool IsShooting { get; set; }
 }
-    

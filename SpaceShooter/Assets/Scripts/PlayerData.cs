@@ -40,11 +40,11 @@ public class PlayerData : MonoBehaviour, IMovable, IMortal, IInput, IDash, IArme
     }
     public int MaxHP { get => maxHP; set => maxHP = maxHP > 0 ? value : maxHP; }
     public int CurrentHP { get => currentHP; set => currentHP = value >= 0 ? value : currentHP; }
-    public bool IsShooting { get => isShooting; set => isShooting = value; }
-    public float SpeedFactor { get => speedFactor; set => speedFactor = value; }
     public float DashAmount { get => dashAmount; set => dashAmount = value; }
     public float DashTimeReload { get => dashTimeReload; set => dashTimeReload = value; }
     public bool IsDash { get => isDash; set => isDash = value; }        
+    public float SpeedFactor { get => speedFactor; set => speedFactor = value; }
+    public bool IsShooting { get => isShooting; set => isShooting = value; }
     public int MaxCountDash { get => maxCountDash; set => maxCountDash = value; }
     public float TimeBetweenDash { get => timeBetweenDash; set => timeBetweenDash = value; }
 

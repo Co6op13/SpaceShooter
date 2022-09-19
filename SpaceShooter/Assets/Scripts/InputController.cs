@@ -8,10 +8,11 @@ public class InputController : MonoBehaviour
 {
     private IInput dataObject;
 
+    public IInput DataObject { get => dataObject; set => dataObject = value; }
 
     private void Awake()
     {
-        dataObject = GetComponent<IInput>();
+        DataObject = GetComponent<IInput>();
     }
 
 
@@ -24,17 +25,17 @@ public class InputController : MonoBehaviour
 
     private void GetFire()
     {
-        if (Input.GetButton("Fire1")) dataObject.IsShooting = true;
+        if (Input.GetButton("Fire1")) DataObject.IsShooting = true;
     }
 
     private void GetDirection()
     {
-        dataObject.Direction = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), dataObject.Direction.z);
+        DataObject.Direction = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), DataObject.Direction.z);
     }
 
     private void GetDash()
     {
-        if (Input.GetButtonDown("Dash")) dataObject.IsDash = true;
+        if (Input.GetButtonDown("Dash")) DataObject.IsDash = true;
             
     }
 

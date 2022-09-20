@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActionMove : MonoBehaviour, IAction
+public class TestActionMove : MonoBehaviour, TestIAction
 {
     private IMovable dataObject;
     private Rigidbody2D rb2d;

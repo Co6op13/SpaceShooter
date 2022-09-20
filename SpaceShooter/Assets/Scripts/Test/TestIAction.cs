@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IActionMove
+public interface TestIAction
 {
-   void Move(); 
+    void DoAction();
 }

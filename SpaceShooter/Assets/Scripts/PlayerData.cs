@@ -28,6 +28,7 @@ public class PlayerData : MonoBehaviour, IMovable, IMortal, IInput, IDash, IArme
         get { return maxMovementSpeed * speedFactor * Mathf.Clamp(direction.magnitude, 0.0f, 1.0f); }
 
     }
+    public float SpeedFactor { get => speedFactor; set => speedFactor = value; }
     public Vector3 Direction
     {
         get
@@ -39,18 +40,12 @@ public class PlayerData : MonoBehaviour, IMovable, IMortal, IInput, IDash, IArme
         set => direction = value;
     }
     public int MaxHP { get => maxHP; set => maxHP = maxHP > 0 ? value : maxHP; }
-    public int CurrentHP { get => currentHP; set => currentHP = value >= 0 ? value : currentHP; }
+    public int CurrentHP { get => currentHP; set => currentHP = value; }
+    public bool IsShooting { get => isShooting; set => isShooting = value; }
     public float DashAmount { get => dashAmount; set => dashAmount = value; }
     public float DashTimeReload { get => dashTimeReload; set => dashTimeReload = value; }
     public bool IsDash { get => isDash; set => isDash = value; }        
-    public float SpeedFactor { get => speedFactor; set => speedFactor = value; }
-    public bool IsShooting { get => isShooting; set => isShooting = value; }
     public int MaxCountDash { get => maxCountDash; set => maxCountDash = value; }
     public float TimeBetweenDash { get => timeBetweenDash; set => timeBetweenDash = value; }
-
-    private void Awake()
-    {
-        currentHP = maxHP;
-    }
 
 }

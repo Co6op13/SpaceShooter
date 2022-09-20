@@ -10,6 +10,8 @@ public class MortalController : MonoBehaviour
     private void Awake()
     {
         dataobject = GetComponent<IMortal>();
+        dataobject.CurrentHP = dataobject.MaxHP;
+
     }
 
 

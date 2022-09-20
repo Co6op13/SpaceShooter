@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActionInput : MonoBehaviour, IAction
+public class TestActionInput : MonoBehaviour, TestIAction
 {
     private IInput dataObject;
 

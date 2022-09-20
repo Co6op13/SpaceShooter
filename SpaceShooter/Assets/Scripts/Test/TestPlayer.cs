@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour, IInput, IMovable
+public class TestPlayer : MonoBehaviour, IInput, IMovable
 { 
     [SerializeField] [Tooltip("Maximum movement speed. No buffs or debuff.")] private float maxMovementSpeed;
     [SerializeField] [Tooltip("Coefficient for buff or debuff. from 0f to 2f.")] private float speedFactor; //baf debaff coefficient
@@ -14,8 +14,8 @@ public class Player : MonoBehaviour, IInput, IMovable
     [Space]
     [SerializeField] [Tooltip("Is it shooting at the moment?")] private bool isShooting = false;
 
-    private IAction actionMove;
-    private IAction actionInput;
+    private TestIAction actionMove;
+    private TestIAction actionInput;
 
     public float MaxMovementSpeed { get => maxMovementSpeed; set => maxMovementSpeed = value; }
     public float CurrentMovementSpeed
@@ -40,8 +40,8 @@ public class Player : MonoBehaviour, IInput, IMovable
 
     private void Awake()
     {
-        actionMove = GetComponent<ActionMove>();
-        actionInput = GetComponent<ActionInput>();
+        actionMove = GetComponent<TestActionMove>();
+        actionInput = GetComponent<TestActionInput>();
     }
 
     private void Update()

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IActionInput 
+public interface TestIActionInput 
 {
     private void GetFire() { }
 

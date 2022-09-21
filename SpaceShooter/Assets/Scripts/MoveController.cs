@@ -12,8 +12,7 @@ public class MoveController : MonoBehaviour
         dataObject = GetComponent<IMovable>();
         rb = GetComponent<Rigidbody2D>();
     }
-
-
+    
     private void FixedUpdate()
     {
         Move();

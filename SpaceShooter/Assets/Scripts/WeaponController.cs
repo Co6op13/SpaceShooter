@@ -51,11 +51,11 @@ public class WeaponController : MonoBehaviour
         canShooting = true;
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Vector2 direction = 
-        Gizmos.DrawRay()
-    }
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.red;
+    //    //Vector2 direction =
+    //    Gizmos.DrawRay();
+    //}
 
 }

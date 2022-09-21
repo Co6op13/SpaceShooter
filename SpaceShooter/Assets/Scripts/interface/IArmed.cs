@@ -5,4 +5,7 @@ using UnityEngine;
 public interface IArmed 
 {
     bool IsShooting { get; set; }
+
+    Vector3 PivotWeapon { get; }
+
 }

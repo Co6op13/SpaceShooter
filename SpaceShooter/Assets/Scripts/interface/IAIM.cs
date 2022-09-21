@@ -2,7 +2,11 @@
 
 internal interface IAIM
 {
-    GameObject Target { get; set; }
-    GameObject Weapon { get; set; }
+    Vector3 DirectionOnTarget { get; set; }
+    float AimingAngle { get; set; }
+    LayerMask TargetLayer { get;}
+    float AgrRadiud { get; }
 
+    float TimeSearch { get; }
 }
+  

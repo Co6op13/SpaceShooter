@@ -8,10 +8,12 @@ public class StaticTurretData : MonoBehaviour, IMortal, IArmed
     [SerializeField] [Tooltip("")] private int currentHP;
     [Space]
     [SerializeField] [Tooltip("Is it shooting at the moment?")] private bool isShooting = false;
+    [Space]
+    [SerializeField] [Tooltip("The position where the weapon is located.")] private Vector3 pivotWeapon;
 
     public int MaxHP { get => maxHP; set => maxHP = maxHP > 0 ? value : maxHP; }
     public int CurrentHP { get => currentHP; set => currentHP = value; }
     public bool IsShooting { get => true; set => isShooting = value; }
-  
+    public Vector3 PivotWeapon { get => pivotWeapon; }
 }
 

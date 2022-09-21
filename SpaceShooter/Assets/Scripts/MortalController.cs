@@ -17,7 +17,7 @@ public class MortalController : MonoBehaviour
 
     public void TakesDamage (int damage)
     {
-        if (dataobject.CurrentHP - damage >= 0)
+        if (dataobject.CurrentHP - damage > 0)
         {
             dataobject.CurrentHP -= damage;
         } 

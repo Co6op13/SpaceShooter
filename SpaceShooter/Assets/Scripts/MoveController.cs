@@ -13,6 +13,7 @@ public class MoveController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
+
     private void FixedUpdate()
     {
         Move();

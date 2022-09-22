@@ -3,7 +3,10 @@ internal interface ITurn
 {
     Vector3 DirectionOnTarget { get; set; }
     float AimingAngle { get; set; }
-    Vector3 PivotWeapon { get; }
+    Transform PivotWeapon { get; }
+
+    float MaxAngleRotate { get; }
+    float MinAngleRotate { get; }
 
     float TurnSpeed { get; }
 

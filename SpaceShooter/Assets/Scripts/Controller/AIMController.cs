@@ -22,21 +22,23 @@ public class AIMController : MonoBehaviour
     {
         while (gameObject.activeSelf)
         {
-            var detectedÑolLider = Physics2D.OverlapCircleAll(transform.position, dataObject.AgrRadiud
+            Collider2D[] detectedÑolLider = Physics2D.OverlapCircleAll(transform.position, dataObject.AgrRadiud
                                                              , dataObject.TargetLayer);
-            float dist = dataObject.AgrRadiud;
-            Collider2D currentCollider = detectedÑolLider[0];
-            foreach (Collider2D collider in detectedÑolLider)
+            if (detectedÑolLider.Length > 0)
             {
-                float currentDist = Vector3.Distance(transform.position, collider.transform.position);
-                if (currentDist < dist)
+                float dist = dataObject.AgrRadiud;
+                Collider2D currentCollider = detectedÑolLider[0];
+                foreach (Collider2D collider in detectedÑolLider)
                 {
-                    currentCollider = collider;
-                    dist = currentDist;
+                    float currentDist = Vector3.Distance(transform.position, collider.transform.position);
+                    if (currentDist < dist)
+                    {
+                        currentCollider = collider;
+                        dist = currentDist;
+                    }
                 }
+                nearestTarget = currentCollider.transform;
             }
-            nearestTarget = currentCollider.transform;
-
             yield return new WaitForSeconds(dataObject.TimeSearch);
         }
         yield break;
@@ -61,7 +63,7 @@ public class AIMController : MonoBehaviour
 
     private void ShowDirection()
     {
-        Debug.DrawRay(transform.position, dataObject.DirectionOnTarget, Color.yellow);        
+        Debug.DrawRay(dataObject.PivotWeapon.position, dataObject.DirectionOnTarget*4, Color.yellow);        
     }
 
     private void OnDrawGizmos()

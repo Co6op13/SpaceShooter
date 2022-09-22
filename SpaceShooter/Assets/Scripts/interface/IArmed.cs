@@ -6,6 +6,6 @@ public interface IArmed
 {
     bool IsShooting { get; set; }
 
-    Vector3 PivotWeapon { get; }
+    Transform PivotWeapon { get; }
 
 }

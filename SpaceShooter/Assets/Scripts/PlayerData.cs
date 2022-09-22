@@ -26,7 +26,7 @@ public class PlayerData : MonoBehaviour, IMovable, IMortal, IInput, IDash, IArme
     [Range(0f, 3f)]
     [SerializeField]
     [Tooltip("The position where the weapon is located.")]
-    private Vector3 pivotWeapon;
+    private Transform pivotWeapon;
 
     public float MaxMovementSpeed { get => maxMovementSpeed; set => maxMovementSpeed = value; }
     public float CurrentMovementSpeed
@@ -54,5 +54,5 @@ public class PlayerData : MonoBehaviour, IMovable, IMortal, IInput, IDash, IArme
     public int MaxCountDash { get => maxCountDash; set => maxCountDash = value; }
     public float TimeBetweenDash { get => timeBetweenDash; set => timeBetweenDash = value; }
 
-    public Vector3 PivotWeapon => throw new System.NotImplementedException();
+    public Transform PivotWeapon => throw new System.NotImplementedException();
 }

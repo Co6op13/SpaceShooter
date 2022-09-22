@@ -7,6 +7,8 @@ public class AIMStaticTurretData : StaticTurretData, IAIM, ITurn
     [SerializeField] private GameObject weapon;
     [Range(0, 20)] [SerializeField] private float turnSpeed;
     [SerializeField] private float aimingAngle;
+    [Range(0, 359)] [SerializeField] private float maxANgleRotate;
+    [Range(0, 359)] [SerializeField] private float minANgleRotate;
     [SerializeField] [Tooltip("The layer on which the target is located. ")] private LayerMask targetLayer;
     [Range(0, 20)]
     [SerializeField]
@@ -25,5 +27,9 @@ public class AIMStaticTurretData : StaticTurretData, IAIM, ITurn
     public Vector3 DirectionOnTarget { get => directionOnTarget; set => directionOnTarget = value; }
 
     public float TurnSpeed => turnSpeed;
+
+    public float MaxAngleRotate => maxANgleRotate;
+
+    public float MinAngleRotate => minANgleRotate;
 
 }

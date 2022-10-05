@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 9041082798416200949}
   - component: {fileID: 9041082798416200950}
   m_Layer: 0
-  m_Name: Weapon
+  m_Name: WeaponAdd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,6 +76,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b128111503d75941884f3840901e6ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rateFireInSecond: 2
+  rateFireInSecond: 5
   bulletRef: {fileID: 3170647651245916346, guid: 347db8416c3986049a8c46b49fd4c927, type: 3}
   firePoint: {fileID: 9041082797652416159}

@@ -16,24 +16,26 @@ public class WeaponController : MonoBehaviour
     private void Start()
     {
         dataObject = GetComponentInParent<IArmed>();
+
     }
 
     private void FixedUpdate()
     {
         Shooting();
+        
     }
 
     public void Shooting()
     {
         try
         {
-            if (canShooting && dataObject.IsShooting)
+            if (canShooting && dataObject.IsDefaultShooting)
             {
                 var bullet = BulletsObjectPooler.Instance.GetFromPool(bulletRef.name, firePoint.position, firePoint.rotation);
                 canShooting = false;                
                 Invoke("Reload", 1 / rateFireInSecond);
             }
-            dataObject.IsShooting = false;
+          
         }
         catch (UnassignedReferenceException ure)
         {

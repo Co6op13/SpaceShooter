@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StaticTurretData : MonoBehaviour, IMortal, IArmed
+public class StaticTurretData : MonoBehaviour, IMortal
 {
     [SerializeField] [Tooltip("Maximum HP. No buffs or debuff.")] private int maxHP;
     [SerializeField] [Tooltip("")] private int currentHP;
@@ -13,7 +13,7 @@ public class StaticTurretData : MonoBehaviour, IMortal, IArmed
 
     public int MaxHP { get => maxHP; set => maxHP = maxHP > 0 ? value : maxHP; }
     public int CurrentHP { get => currentHP; set => currentHP = value; }
-    public bool IsShooting { get => true; set => isShooting = value; }
+    public bool IsSecondShooting { get => true; set => isShooting = value; }
     public Transform PivotWeapon { get => pivotWeapon; }
 }
 

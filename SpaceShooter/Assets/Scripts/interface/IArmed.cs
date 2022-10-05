@@ -3,9 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public interface IArmed 
-{
-    bool IsShooting { get; set; }
+{    
+    bool IsDefaultShooting { get; set; }
+   // bool IsAdditionalShooting { get; set; }
 
-    Transform PivotWeapon { get; }
+    public Transform PivotDefaultWeapon { get; }
+ //   public Transform PivotAdditionaltWeapon { get; }
 
+    void SetDefaultWeapon(GameObject weapon);
+
+  //  void SetAdditionalWeapon(GameObject weapon);
 }

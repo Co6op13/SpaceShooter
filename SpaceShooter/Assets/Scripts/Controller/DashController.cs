@@ -28,15 +28,15 @@ public class DashController : MonoBehaviour
             prepareForNextDash = false;
             Invoke("PrepareForNextDash", dataObject.TimeBetweenDash);
         }
-        else dataObject.IsDash = false;
+       // else dataObject.IsDash = false;
         if (currenCountDash <= dataObject.MaxCountDash) Invoke("DashReload", dataObject.DashTimeReload);
     }
 
     private void Dash( Vector3 direction)
     {
-        Vector3 dashPosition = transform.position + direction * dataObject.DashAmount;
+        Vector3 dashPosition = transform.position + direction * dataObject.DashRange;
         rb.MovePosition(dashPosition);
-        dataObject.IsDash = false;        
+      //  dataObject.IsDash = false;        
     }
 
     private void DashReload()

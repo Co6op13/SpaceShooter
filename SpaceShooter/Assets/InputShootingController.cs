@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InputShootingController : MonoBehaviour
 {
+    [SerializeField] private FireKey fireKey = FireKey.Fire1;
     private WeaponData weaponData;
 
 
@@ -21,7 +22,7 @@ public class InputShootingController : MonoBehaviour
 
     private void SetFire()
     {
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButton(fireKey.ToString()))
         {
             weaponData.IsDefaultShooting = true;
             Invoke("ResetIsDefaultShooting", 0.1f);

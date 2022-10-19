@@ -5,11 +5,15 @@ using static AccessoryMetods;
 
 public class RotateController : MonoBehaviour
 {
-    [SerializeField] private ITurn dataObject;
+    [SerializeField] private IArmed weaponData;
+    [SerializeField] private IAIM AIMData;
+    [SerializeField] private ITurn turnData;
    
     private void Awake()
     {
-        dataObject = GetComponent<ITurn>();
+        turnData = GetComponent<ITurn>();
+        AIMData = GetComponent<IAIM>();
+        weaponData = GetComponent<IArmed>();
     }
 
     private void FixedUpdate()
@@ -19,25 +23,27 @@ public class RotateController : MonoBehaviour
 
     void TurnWeapon()
     {
-        if (dataObject.AimingAngle < dataObject.MaxAngleRotate
-            && dataObject.AimingAngle > dataObject.MinAngleRotate)
+        //Debug.DrawRay(weaponData.PivotDefaultWeapon.position, AIMData.DirectionOnTarget * 8, Color.blue);
+        if (AIMData.AimingAngle < turnData.MaxAngleRotate
+            && AIMData.AimingAngle > turnData.MinAngleRotate)
         {
-            dataObject.Weapon.transform.rotation = Quaternion.Slerp(dataObject.Weapon.transform.rotation,
-            Quaternion.Euler(0f, 0f, dataObject.AimingAngle), dataObject.TurnSpeed * Time.fixedDeltaTime);
+            Debug.DrawRay(weaponData.PivotDefaultWeapon.position, AIMData.DirectionOnTarget * 8, Color.blue);
+            weaponData.CurrentWeapon.rotation = Quaternion.Slerp(weaponData.CurrentWeapon.rotation,
+            Quaternion.Euler(0f, 0f, AIMData.AimingAngle), turnData.TurnSpeed * Time.fixedDeltaTime);
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        if (dataObject == null)
-        {
-            dataObject = this.gameObject.GetComponent<ITurn>();
-        }       
-            Debug.DrawRay(dataObject.PivotWeapon.position, GetVectorFromAngle(dataObject.MaxAngleRotate +
-                transform.eulerAngles.z) * 3, Color.red);
-            Debug.DrawRay(dataObject.PivotWeapon.position, GetVectorFromAngle(dataObject.MinAngleRotate +
-                transform.eulerAngles.z) * 3, Color.blue);
+    //private void OnDrawGizmos()
+    //{
+    //    if (turnData == null)
+    //    {
+    //        turnData = this.gameObject.GetComponent<ITurn>();
+    //    }       
+    //        Debug.DrawRay(transform.position, GetVectorFromAngle(turnData.MaxAngleRotate +
+    //            weaponData.CurrentWeapon.rotation.eulerAngles.z) * 3, Color.red);
+    //        Debug.DrawRay(transform.position, GetVectorFromAngle(turnData.MinAngleRotate +
+    //            weaponData.CurrentWeapon.rotation.eulerAngles.z) * 3, Color.blue);
 
-    }
+    //}
 
 }

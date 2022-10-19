@@ -4,12 +4,14 @@ using UnityEngine;
 public class AIMController : MonoBehaviour
 {
     //[SerializeField] Vector3 directionOnTarget;
-    private IAIM dataObject;
+    private IArmed weaponData;
+    private IAIM AIMdata;
     private Transform nearestTarget;
 
     private void Awake()
     {
-        dataObject = GetComponent<IAIM>();
+        AIMdata = GetComponent<IAIM>();
+        weaponData = GetComponentInChildren<IArmed>();
     }
 
     private void OnEnable()
@@ -17,16 +19,15 @@ public class AIMController : MonoBehaviour
         StartCoroutine(FindNearestTargets());
     }
 
-
     private IEnumerator FindNearestTargets()
     {
         while (gameObject.activeSelf)
         {
-            Collider2D[] detected—olLider = Physics2D.OverlapCircleAll(transform.position, dataObject.AgrRadiud
-                                                             , dataObject.TargetLayer);
+            Collider2D[] detected—olLider = Physics2D.OverlapCircleAll(transform.position, AIMdata.AgrRadiud
+                                                             , AIMdata.TargetLayer);
             if (detected—olLider.Length > 0)
             {
-                float dist = dataObject.AgrRadiud;
+                float dist = AIMdata.AgrRadiud;
                 Collider2D currentCollider = detected—olLider[0];
                 foreach (Collider2D collider in detected—olLider)
                 {
@@ -39,7 +40,7 @@ public class AIMController : MonoBehaviour
                 }
                 nearestTarget = currentCollider.transform;
             }
-            yield return new WaitForSeconds(dataObject.TimeSearch);
+            yield return new WaitForSeconds(AIMdata.TimeSearch);
         }
         yield break;
     }
@@ -50,31 +51,19 @@ public class AIMController : MonoBehaviour
         {
             GetAimingAngle();
             ShowDirection();
-
         }
     }
 
     private void GetAimingAngle ()
     {
-        dataObject = GetComponent<IAIM>();
-        dataObject.DirectionOnTarget = (nearestTarget.position - transform.position).normalized;
-        dataObject.AimingAngle = GetAngleFromVectorFloat(dataObject.DirectionOnTarget);
+        AIMdata.DirectionOnTarget = (nearestTarget.position - transform.position).normalized;
+        AIMdata.AimingAngle = GetAngleFromVectorFloat(AIMdata.DirectionOnTarget);
     }
 
     private void ShowDirection()
     {
-        Debug.DrawRay(dataObject.PivotWeapon.position, dataObject.DirectionOnTarget*4, Color.yellow);        
-    }
-
-    private void OnDrawGizmos()
-    {
-        if (dataObject != null)
-        {
-            Gizmos.color = Color.white;
-            Gizmos.DrawWireSphere(transform.position, dataObject.AgrRadiud);
-        }
-    }
-
+        Debug.DrawRay(weaponData.PivotDefaultWeapon.position, AIMdata.DirectionOnTarget*4, Color.yellow);        
+    }   
 
     public static Vector3 GetVectorFromAngle(float angle)
     {

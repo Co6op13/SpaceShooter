@@ -8,7 +8,8 @@ public interface IArmed
    // bool IsAdditionalShooting { get; set; }
 
     public Transform PivotDefaultWeapon { get; }
- //   public Transform PivotAdditionaltWeapon { get; }
+    public Transform CurrentWeapon { get; set; }
+    //   public Transform PivotAdditionaltWeapon { get; }
 
     void SetDefaultWeapon(GameObject weapon);
 

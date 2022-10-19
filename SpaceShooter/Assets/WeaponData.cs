@@ -1,10 +1,14 @@
 ﻿
 using UnityEngine;
 
-internal class WeaponData: MonoBehaviour, IArmed
+internal partial class WeaponData: MonoBehaviour, IArmed
 {
+
+    [SerializeField] [Tooltip("Is it shooting at the moment?")] private FireKey fireKey = FireKey.Fire1;
     [SerializeField] [Tooltip("Is it shooting at the moment?")] private bool isDefaultShooting = false;
-    [SerializeField] private GameObject defaultWeapon;
+    [SerializeField] private GameObject prefabDefaultWeapon;
+    [SerializeField] private Transform currentWeapon;
+
     //[SerializeField] [Tooltip("Is it shooting at the moment?")] private bool isAdditionalShooting = false;
     //[SerializeField] private GameObject additionalWeapon;
     //[SerializeField] [Tooltip("Is it shooting at the moment?")] private Transform pivotAdditionaltWeapon;
@@ -14,11 +18,15 @@ internal class WeaponData: MonoBehaviour, IArmed
    
 
     public Transform PivotDefaultWeapon => pivotDefaultWeapon;
+
+    public Transform CurrentWeapon { get => currentWeapon; set => currentWeapon = value; }
+
     //public Transform PivotAdditionaltWeapon => pivotAdditionaltWeapon;
 
     private void Awake()
     {
-        SetDefaultWeapon(defaultWeapon);
+        SetDefaultWeapon(prefabDefaultWeapon);
+        
         //SetAdditionalWeapon(defaultWeapon);
     }
 
@@ -30,6 +38,10 @@ internal class WeaponData: MonoBehaviour, IArmed
 
     public void SetDefaultWeapon(GameObject weapon)
     {
-        defaultWeapon = Instantiate(defaultWeapon , pivotDefaultWeapon);       
+        prefabDefaultWeapon = Instantiate(prefabDefaultWeapon , pivotDefaultWeapon);
+        currentWeapon = prefabDefaultWeapon.transform;
     }
+
+
+    
 }

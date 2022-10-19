@@ -10,6 +10,15 @@
 /SpaceShooter/[Bb]uilds/
 /SpaceShooter/[Ll]ogs/
 /SpaceShooter/[Uu]ser[Ss]ettings/
+/TD/Assets/Ignored/
+/TD/Library
+/TD/[Ll]ibrary/
+/TD/[Tt]emp/
+/TD/[Oo]bj/
+/TD/[Bb]uild/
+/TD/[Bb]uilds/
+/TD/[Ll]ogs/
+/TD/[Uu]ser[Ss]ettings/
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data

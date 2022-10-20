@@ -42,10 +42,9 @@ public partial class DistanceWeapon : MonoBehaviour, IAttackAction
     public IEnumerator Attack()
     {
         isAttacked = true;
-        Debug.Log(1);
         while (target.activeSelf)
         {
-            Debug.Log(2);
+            //Debug.Log(name);
             HPcontroller.TakesDamage(damage);
             yield return new WaitForSeconds(delaySeconds);
         }

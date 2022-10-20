@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using PathCreation;
-using static AccessoryMetods;
+
 
 public class PathWalker : MonoBehaviour, IMoveAction
 {
@@ -10,7 +10,7 @@ public class PathWalker : MonoBehaviour, IMoveAction
     public EndOfPathInstruction endOfPathInstruction;
     public float speed = 5;
     private float distanceTravelled;
-    private float speedRotateAttack = 0.5f;
+
 
     void Start()
     {
@@ -21,16 +21,6 @@ public class PathWalker : MonoBehaviour, IMoveAction
         }
     }
 
-  
-    public void RotateToTarget(Vector3 target)
-    {
-        var direction = target - transform.position;
-        //var angle = Mathf.Atan(direction.y / direction.x) * Mathf.Rad2Deg;
-       // transform.rotation = pathCreator.path.
-        //transform.rotation = Quaternion.Euler(0f, 0f, GetAngleFromVectorFloat(direction.normalized) + 90);
-        transform.rotation =  Quaternion.Slerp( transform.rotation,
-                   Quaternion.Euler(0f, 0f, GetAngleFromVectorFloat(direction.normalized) + 90), speedRotateAttack);
-    }
 
     public void Move()
     {

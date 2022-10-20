@@ -7,6 +7,9 @@ public class HP : MonoBehaviour, IHPConttroller
     [SerializeField] private int currentHP = 1;
     private int maxHP = 1;
 
+    public int CurrentHP { get => currentHP; }
+    public int MaxHP { get => maxHP; }
+
     public void SetMaxHP(int hp)
     {
         maxHP = hp;

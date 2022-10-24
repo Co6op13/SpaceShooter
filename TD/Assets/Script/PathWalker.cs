@@ -10,10 +10,14 @@ public class PathWalker : MonoBehaviour, IMoveAction
     public EndOfPathInstruction endOfPathInstruction;
     public float speed = 5;
     private float distanceTravelled;
+    private float randomOffsetX, randomOffsetY;
 
 
     void Start()
     {
+        randomOffsetY = Random.Range(-3f, 3f);
+        randomOffsetX = Random.Range(-3f, 3f);
+
         if (pathCreator != null)
         {
             // Subscribed to the pathUpdated event so that we're notified if the path changes during the game
@@ -21,13 +25,18 @@ public class PathWalker : MonoBehaviour, IMoveAction
         }
     }
 
+    public void SetPath (PathCreator path)
+    {
+        pathCreator = path;
+    }
 
     public void Move()
     {
         if (pathCreator != null)
         {
             distanceTravelled += speed * Time.deltaTime;
-            transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
+            transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction)
+                                    + new Vector3 (randomOffsetX,randomOffsetY,0f);
             transform.rotation = pathCreator.path.GetRotationAtDistance2d(distanceTravelled, endOfPathInstruction);
         }
     }

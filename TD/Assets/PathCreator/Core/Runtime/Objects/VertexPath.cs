@@ -237,11 +237,19 @@ namespace PathCreation {
             var data = CalculatePercentOnPathData(t, endOfPathInstruction);           
             Vector3 direction = localTangents[data.nextIndex] - localTangents[data.previousIndex];
             direction = direction.normalized;
+            
+
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            if (angle < 0) angle += 360;
+            Debug.Log(angle + "   " + direction.x + "   " + direction.y );
+
+  //              if (direction.x > 0 && direction.y < 0) angle += 180;
+//                if (direction)
+            
 
             return Quaternion.Euler(0f, 0f, angle);
         }
+
+
 
         /// Finds the closest point on the path from any point in the world
         public Vector3 GetClosestPointOnPath (Vector3 worldPoint) {

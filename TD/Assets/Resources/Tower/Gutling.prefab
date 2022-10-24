@@ -14,10 +14,9 @@ GameObject:
   - component: {fileID: 483840246462395007}
   - component: {fileID: 483840246462395006}
   - component: {fileID: 483840246462395002}
-  - component: {fileID: 483840246462394945}
   - component: {fileID: 483840246462394946}
   m_Layer: 0
-  m_Name: Tower
+  m_Name: Gutling
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38,6 +37,7 @@ Transform:
   - {fileID: 483840246597066571}
   - {fileID: 483840248262026582}
   - {fileID: 483840248314963975}
+  - {fileID: 1508084860655605748}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -53,8 +53,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c1c049a83d99a54f9c833ef3001a9b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceAttack: {fileID: 483840246462394945}
-  maxHP: 100
+  distanceAttack: {fileID: 1160960748586850371}
+  maxHP: 1000
   currentTarget: {fileID: 0}
   targets: []
   isAttack: 0
@@ -71,9 +71,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: 0
-  attackSpeed: 2
+  attackSpeed: 3
   target: {fileID: 0}
-  damage: 1
+  damage: 15
 --- !u!114 &483840246462395007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,22 +121,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &483840246462394945
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 483840246462395000}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 4
 --- !u!61 &483840246462394946
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -491,3 +475,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &5787479840704102486
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1508084860655605748}
+  - component: {fileID: 1160960748586850371}
+  m_Layer: 0
+  m_Name: DistanceAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1508084860655605748
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5787479840704102486}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 483840246462395003}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &1160960748586850371
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5787479840704102486}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 6

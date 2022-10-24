@@ -49,7 +49,7 @@ public class CrawlingEnemy : MonoBehaviour
         else
         {
             moveAction.Move();
-            GetCurrentTarget();
+            //GetCurrentTarget();
         }
     }
 

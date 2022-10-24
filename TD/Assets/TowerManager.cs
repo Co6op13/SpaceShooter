@@ -7,9 +7,19 @@ public class TowerManager : MonoBehaviour
     [SerializeField] private int coins;
     [SerializeField] private TowersVariable towersVariable;
     
-    public void AddTower(var)
+    private void AddTower(TowersVariable towersVariable)
     {
-        Instantiate(prefab, new Vector3(2f, 2f, 0f), transform.rotation);
+        Debug.Log(towersVariable.ToString());
+        Instantiate(Resources.Load("Tower/" + towersVariable.ToString()), new Vector3(2f, 2f, 0f), transform.rotation);
+    }
+
+    public void AddGutling()
+    {
+        AddTower(TowersVariable.Gutling);
+    }
+    public void AddFlamethrower()
+    {
+        AddTower(TowersVariable.Flamethrower);
     }
 
 

@@ -5,11 +5,11 @@ using UnityEngine;
 public class TowerGatling : MonoBehaviour
 {
 
-    [SerializeField] private Collider2D distanceAttack;
+    [SerializeField] private CircleCollider2D areaAttack;
     [SerializeField] private int maxHP;
     private IAttackAction attackAction;
     private IHPConttroller HPcontroller;
-
+    [SerializeField] private float distanceAttack;
     private IRotateAction rotateAction;
     [SerializeField] private GameObject currentTarget;
     [SerializeField] private List<GameObject> targets;
@@ -17,6 +17,7 @@ public class TowerGatling : MonoBehaviour
 
     private void Awake()
     {
+        distanceAttack = areaAttack.radius;
         targets = new List<GameObject>();
         attackAction = GetComponent<IAttackAction>();
         HPcontroller = GetComponent<IHPConttroller>();
@@ -30,27 +31,25 @@ public class TowerGatling : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
-        if (currentTarget != null)
+        if (currentTarget != null && targets.Contains(currentTarget))
         {
             rotateAction.RotateToTarget(currentTarget.transform.position);
-            if (!isAttack) StartCoroutine(Attack());
+            attackAction.AttackTarget(currentTarget);
+            if (currentTarget.activeSelf == false) DropCuurentTarget(currentTarget);
         }
         else GetCurrentTarget();
+
     }
 
-    private IEnumerator Attack()
-    {
-        isAttack = true;
-        attackAction.SetTarget(currentTarget);
-        Debug.Log("start attack");
-        attackAction.AttackTarget();
-        yield return new WaitUntil(() => currentTarget.activeSelf == false);
-        Debug.Log("end attack");
-        DropCuurentTarget();
-        isAttack = false;
-        yield break;
-    }
+    //private IEnumerator Attack()
+    //{
+    //    attackAction.AttackTarget(currentTarget);
+
+    //    // yield return new WaitUntil(() => currentTarget.activeSelf == false);       
+    //    //DropCuurentTarget();
+    //    isAttack = false;
+    //    yield break;
+    //}
 
 
 
@@ -62,10 +61,9 @@ public class TowerGatling : MonoBehaviour
         }
     }
 
-    private void DropCuurentTarget()
+    private void DropCuurentTarget(GameObject target)
     {
-        targets.Remove(currentTarget);
-        currentTarget = null;
+        targets.Remove(target);
         Debug.Log(targets.Count);
     }
 
@@ -75,5 +73,19 @@ public class TowerGatling : MonoBehaviour
         {
             targets.Add(collision.gameObject);
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            DropCuurentTarget(collision.gameObject);
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, distanceAttack);
     }
 }

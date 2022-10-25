@@ -55,14 +55,14 @@ public class CrawlingEnemy : MonoBehaviour
 
     private IEnumerator Attack()
     {
-        isAttack = true;
-        attackAction.SetTarget(currentTarget);
-        Debug.Log("start attack");
-        attackAction.AttackTarget();
-        yield return new WaitUntil(() => currentTarget.activeSelf == false);
-        Debug.Log("end attack");
-        DropCuurentTarget();
-        isAttack = false;
+        //isAttack = true;
+        //attackAction.SetTarget(currentTarget);
+        //Debug.Log("start attack");
+        //attackAction.AttackTarget();
+        //yield return new WaitUntil(() => currentTarget.activeSelf == false);
+        //Debug.Log("end attack");
+        //DropCuurentTarget();
+        //isAttack = false;
         yield break;
     }
 

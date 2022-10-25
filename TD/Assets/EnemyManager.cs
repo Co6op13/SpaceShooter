@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using PathCreation;
+using System;
 
 public class EnemyManager : MonoBehaviour
 {
@@ -11,17 +12,17 @@ public class EnemyManager : MonoBehaviour
 
     public void AddEnemy1()
     {
-        AddEnemy(prefab1);
+        AddEnemy(prefab1.name);
     }
 
     public void AddEnemy2()
     {
-        AddEnemy(prefab2);
+        AddEnemy(prefab2.name);
     }
 
-    private void AddEnemy(GameObject prefab)
+    private void AddEnemy(String nameEnemy)
     {
-        var enemy = Instantiate(prefab, new Vector3(2f, 2f, 0f), transform.rotation);
+        var enemy = EnemyObjectPool.Instance.GetFromPool(nameEnemy, transform.position, transform.rotation);     
         enemy.GetComponent<PathWalker>().SetPath(path.GetComponent<PathCreator>());
     }
 }

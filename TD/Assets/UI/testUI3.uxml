@@ -7,19 +7,19 @@
             <ui:Button text="addEnemy1" display-tooltip-when-elided="true" name="TestCreateEnemy1" class="menu-button" style="height: 95%;" />
         </ui:VisualElement>
         <ui:VisualElement style="flex-direction: row-reverse; width: 50%; height: 100%;">
-            <ui:Label text="0" display-tooltip-when-elided="true" name="CoinsCount" style="font-size: 32px; -unity-text-align: upper-center; -unity-text-outline-color: rgba(255, 255, 255, 255); -unity-font-style: bold; -unity-text-outline-width: 0; background-color: rgb(255, 255, 255); -unity-background-image-tint-color: rgba(221, 204, 204, 255);" />
+            <ui:Label text="0" display-tooltip-when-elided="true" name="moneyLabel" style="font-size: 32px; -unity-text-align: upper-center; -unity-text-outline-color: rgb(255, 255, 255); -unity-font-style: bold; -unity-text-outline-width: 0; background-color: rgb(255, 255, 255); -unity-background-image-tint-color: rgb(221, 204, 204);" />
         </ui:VisualElement>
     </ui:VisualElement>
-    <ui:VisualElement name="Menu" class="menu-button" style="width: 100%; height: 85%; visibility: hidden; justify-content: center; align-items: center; -unity-text-outline-color: rgb(0, 0, 0); background-color: rgba(0, 0, 0, 0.4); overflow: visible; top: auto;">
-        <ui:VisualElement name="PanelGameOwer" style="width: 60%; height: 80%; justify-content: flex-start; align-items: center; flex-direction: column; background-color: rgba(103, 103, 103, 0.33); visibility: hidden;">
+    <ui:VisualElement name="Menu" class="menu-button" style="width: 100%; height: 85%; visibility: visible; justify-content: center; align-items: center; -unity-text-outline-color: rgb(0, 0, 0); background-color: rgba(0, 0, 0, 0.4); overflow: visible; top: auto;">
+        <ui:VisualElement name="PanelGameOwer" style="width: 60%; height: 80%; justify-content: flex-start; align-items: center; flex-direction: column; background-color: rgba(103, 103, 103, 0.33); visibility: visible;">
             <ui:Label text="GameOwer" display-tooltip-when-elided="true" style="width: 80%; height: 20%; bottom: auto; top: auto; font-size: 114px; align-items: flex-start; -unity-text-align: upper-center; -unity-font-style: bold; justify-content: flex-start;" />
             <ui:Button text="Restart" display-tooltip-when-elided="true" name="Restart" class="menu-button gameOwerMenyButton gameOwerMenyBytton" />
             <ui:Button text="Main Meny" display-tooltip-when-elided="true" name="MainMeny" class="menu-button gameOwerMenyButton gameOwerMenyBytton" />
-            <ui:Button text="Resme" display-tooltip-when-elided="true" name="Resme" class="menu-button gameOwerMenyButton gameOwerMenyBytton" style="top: 60px;" />
+            <ui:Button text="Resume" display-tooltip-when-elided="true" name="Resume" class="menu-button gameOwerMenyButton gameOwerMenyBytton" style="top: 60px;" />
         </ui:VisualElement>
     </ui:VisualElement>
     <ui:VisualElement name="TowerMenu" style="width: auto; height: 10%; justify-content: flex-start; flex-shrink: 0; flex-grow: 0; align-items: flex-start; flex-direction: row; background-image: none;">
         <ui:Button text="addTower1" display-tooltip-when-elided="true" name="Gutling" class="menu-button" style="height: 95%;" />
-        <ui:Button text="addTower2" display-tooltip-when-elided="true" name="Flamethrower" class="menu-button" style="height: 95%; color: rgba(255, 0, 0, 255); -unity-font-style: bold; font-size: 50%;" />
+        <ui:Button text="addTower2" display-tooltip-when-elided="true" name="Flamethrower" class="menu-button" style="height: 95%;" />
     </ui:VisualElement>
 </ui:UXML>

@@ -246,8 +246,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: 0
-  attackSpeed: 5
-  damage: 5
+  attackSpeed: 10
+  damage: 2
   visualAttack: {fileID: 0}
 --- !u!114 &7269448669093628387
 MonoBehaviour:

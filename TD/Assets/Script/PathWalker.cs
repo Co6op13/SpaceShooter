@@ -12,7 +12,10 @@ public class PathWalker : MonoBehaviour, IMoveAction
     private float distanceTravelled;
     private float randomOffsetX, randomOffsetY;
 
-
+    private void OnEnable()
+    {
+        distanceTravelled = 0;
+    }
     void Start()
     {
         randomOffsetY = Random.Range(-3f, 3f);

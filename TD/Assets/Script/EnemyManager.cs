@@ -23,7 +23,8 @@ public class EnemyManager : MonoBehaviour
 
     private void AddEnemy(String nameEnemy)
     {       
-        var enemy = EnemyObjectPool.Instance.GetFromPool(nameEnemy, pointSpawn, transform.rotation);     
+        var enemy = EnemyObjectPool.Instance.GetFromPool(nameEnemy, pointSpawn, transform.rotation);
+        enemy.transform.position = pointSpawn;
         enemy.GetComponent<PathWalker>().SetPath(pathCreator.GetComponent<PathCreator>());
     }
 }

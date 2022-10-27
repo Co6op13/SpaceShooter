@@ -34,7 +34,7 @@ public class HP : MonoBehaviour, IHPConttroller
         else
         {
             currentHP = 0;
-            gameObject.SetActive(false);
+            Killed();
         }
 
     }
@@ -47,8 +47,14 @@ public class HP : MonoBehaviour, IHPConttroller
         }
         else
         {
+            currentHP = 0;
             currentHP = maxHP;
         }
 
+    }
+
+    virtual protected void Killed()
+    {
+        gameObject.SetActive(false);
     }
 }

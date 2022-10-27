@@ -107,8 +107,8 @@ GameObject:
   - component: {fileID: 7269448669093628392}
   - component: {fileID: 7269448669093628399}
   - component: {fileID: 7269448669093628396}
+  - component: {fileID: 6994276089425212893}
   - component: {fileID: 7269448669093628386}
-  - component: {fileID: 7269448669093628397}
   - component: {fileID: 7269448669093628387}
   - component: {fileID: 7269448669093628385}
   - component: {fileID: 7269448669093628398}
@@ -119,7 +119,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7269448669093628392
 Transform:
   m_ObjectHideFlags: 0
@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceAttack: {fileID: 2409654887427007965}
+  priceToKill: 0
   maxHP: 150
   currentTarget: {fileID: 0}
   targets: []
@@ -171,6 +172,19 @@ MonoBehaviour:
   pathCreator: {fileID: 0}
   endOfPathInstruction: 0
   speed: 5
+--- !u!114 &6994276089425212893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7269448669093628394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 447ee8f9ce1b84e49932456015dbef9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHP: 1
 --- !u!114 &7269448669093628386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,21 +199,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: 0
   attackSpeed: 3
-  target: {fileID: 0}
   damage: 3
---- !u!114 &7269448669093628397
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7269448669093628394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 447ee8f9ce1b84e49932456015dbef9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentHP: 1
+  visualAttack: {fileID: 0}
 --- !u!114 &7269448669093628387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,8 +228,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: 0
   attackSpeed: 5
-  target: {fileID: 0}
   damage: 1
+  visualAttack: {fileID: 0}
 --- !u!50 &7269448669093628398
 Rigidbody2D:
   serializedVersion: 4

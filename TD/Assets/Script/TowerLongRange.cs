@@ -2,25 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerGatling : MonoBehaviour
+public class TowerLongRange : MonoBehaviour
 {
 
     [SerializeField] private CircleCollider2D areaAttack;
     [SerializeField] private int maxHP;
     private IAttackAction attackAction;
     private IHPConttroller HPcontroller;
-    [SerializeField] private float distanceAttack;
+    private float distanceAttack;
     private IRotateAction rotateAction;
     [SerializeField] private GameObject currentTarget;
     [SerializeField] private List<GameObject> targets;
-    [SerializeField] private bool isAttack = false;
+    //[SerializeField] private bool isAttack = false;
 
     private void Awake()
     {
-        distanceAttack = areaAttack.radius;
         targets = new List<GameObject>();
+        distanceAttack = areaAttack.radius;
         attackAction = GetComponent<IAttackAction>();
         HPcontroller = GetComponent<IHPConttroller>();
+        HPcontroller.SetMaxHP(maxHP);
         rotateAction = GetComponent<IRotateAction>();
     }
 
@@ -40,18 +41,6 @@ public class TowerGatling : MonoBehaviour
         else GetCurrentTarget();
 
     }
-
-    //private IEnumerator Attack()
-    //{
-    //    attackAction.AttackTarget(currentTarget);
-
-    //    // yield return new WaitUntil(() => currentTarget.activeSelf == false);       
-    //    //DropCuurentTarget();
-    //    isAttack = false;
-    //    yield break;
-    //}
-
-
 
     private void GetCurrentTarget()
     {

@@ -30,17 +30,37 @@ public partial class DistanceWeapon : MonoBehaviour, IAttackAction
         delaySeconds = 1 / attackSpeed;
     }
 
-    //public void SetTarget(GameObject target)
-    //{
-    //    this.target = target;
-    //    GetHPControllerFromTarget();
-    //}
 
     private void GetHPControllerFromTarget(GameObject target)
     {
         HPcontroller = target.GetComponent<IHPConttroller>();
     }
 
+
+    public void AttackTarget(GameObject target)
+    {
+        GetHPControllerFromTarget(target);
+        if (!isAttacked)
+        {
+            isAttacked = true;
+            HPcontroller.TakesDamage(damage);
+            Invoke("CancelAttack", delaySeconds);
+        }
+    }
+
+
+    private void CancelAttack()
+    {
+        isAttacked = false;
+    }
+
+}
+
+    //public void SetTarget(GameObject target)
+    //{
+    //    this.target = target;
+    //    GetHPControllerFromTarget();
+    //}
 
     //public IEnumerator Attack()
     //{
@@ -63,35 +83,10 @@ public partial class DistanceWeapon : MonoBehaviour, IAttackAction
     //   if(!isAttacked) StartCoroutine(Attack());
     //}
 
-    private IEnumerator Attack()
-    {
+    //private IEnumerator Attack()
+    //{
         
-        yield return new WaitForSeconds(delaySeconds);
-        isAttacked = false;
-        yield break;
-    }
-
-
-    public void AttackTarget(GameObject target)
-    {
-        GetHPControllerFromTarget(target);
-        if (!isAttacked)
-        {
-            HPcontroller.TakesDamage(damage);
-        }
-    }
-
-    //private void DropTarget()
-    //{
-    //    HPcontroller = null;
-    //    target = null;
+    //    yield return new WaitForSeconds(delaySeconds);
     //    isAttacked = false;
+    //    yield break;
     //}
-
-    //public void SetDistanceAttack(float distance)
-    //{
-    //    distanceAttack = distance;
-    //}
-
-
-}

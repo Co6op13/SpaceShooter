@@ -5,6 +5,7 @@ using UnityEngine;
 public class CrawlingEnemy : MonoBehaviour
 {
     [SerializeField] private Collider2D distanceAttack;
+    [SerializeField] private int priceToKill;
     [SerializeField] private int maxHP;
     private IAttackAction attackAction;
     private IMoveAction moveAction;
@@ -16,6 +17,7 @@ public class CrawlingEnemy : MonoBehaviour
 
     private void Awake()
     {
+        targets = new List<GameObject>();
         moveAction = GetComponent<IMoveAction>();
         attackAction = GetComponent<IAttackAction>();
         HPcontroller = GetComponent<IHPConttroller>();
@@ -27,46 +29,21 @@ public class CrawlingEnemy : MonoBehaviour
         HPcontroller.SetMaxHP(maxHP);
     }
 
-    //private void FixedUpdate()
-    //{
-    //    if (isAttack)
-    //    if (!isAttack) moveAction.Move();
-    //    {
-    //        rotateAction.RotateToTarget(targetToAttack.transform.position);
-    //        attackAction.SetTarget(targetToAttack);
-    //        attackAction.AttackTarget();
-    //        if (!targetToAttack.activeSelf) isAttack = false;
-    //    }
-    //}
     private void FixedUpdate()
     {
 
-        if (currentTarget != null)
+        if (currentTarget != null && targets.Contains(currentTarget))
         {
             rotateAction.RotateToTarget(currentTarget.transform.position);
-            if (!isAttack) StartCoroutine(Attack());
+            attackAction.AttackTarget(currentTarget);
+            if (currentTarget.activeSelf == false) DropCuurentTarget(currentTarget);
         }
         else
         {
             moveAction.Move();
-            //GetCurrentTarget();
+            GetCurrentTarget();
         }
     }
-
-    private IEnumerator Attack()
-    {
-        //isAttack = true;
-        //attackAction.SetTarget(currentTarget);
-        //Debug.Log("start attack");
-        //attackAction.AttackTarget();
-        //yield return new WaitUntil(() => currentTarget.activeSelf == false);
-        //Debug.Log("end attack");
-        //DropCuurentTarget();
-        //isAttack = false;
-        yield break;
-    }
-
-
 
     private void GetCurrentTarget()
     {
@@ -76,10 +53,9 @@ public class CrawlingEnemy : MonoBehaviour
         }
     }
 
-    private void DropCuurentTarget()
+    private void DropCuurentTarget(GameObject target)
     {
-        targets.Remove(currentTarget);
-        currentTarget = null;
+        targets.Remove(target);
         Debug.Log(targets.Count);
     }
 
@@ -89,5 +65,18 @@ public class CrawlingEnemy : MonoBehaviour
         {
             targets.Add(collision.gameObject);
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Tower"))
+        {
+            DropCuurentTarget(collision.gameObject);
+        }
+    }
+
+    private void OnDisable()
+    {
+        MyEventManager.SendEnemyKilled(priceToKill);        
     }
 }

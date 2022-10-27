@@ -1,0 +1,29 @@
+.menu-button {
+    width: auto;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    height: auto;
+    border-left-color: rgb(13, 36, 27);
+    border-right-color: rgb(13, 36, 27);
+    border-top-color: rgb(13, 36, 27);
+    border-bottom-color: rgb(13, 36, 27);
+    border-left-width: 3px;
+    border-right-width: 5px;
+    border-top-width: 3px;
+    border-bottom-width: 5px;
+    background-color: rgb(0, 104, 115);
+    -unity-font-style: bold;
+    transition-duration: 0.2s;
+    transition-delay: 0s;
+}
+
+.menu-button:hover {
+    background-color: rgb(0, 83, 91);
+    rotate: 0;
+    width: auto;
+    height: auto;
+    transition-duration: 0.2s;
+    transition-delay: 0s;
+}

@@ -54,11 +54,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c1c049a83d99a54f9c833ef3001a9b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceAttack: {fileID: 3199070252739989560}
+  areaAttack: {fileID: 3199070252739989560}
   maxHP: 3000
   currentTarget: {fileID: 0}
   targets: []
-  isAttack: 0
 --- !u!114 &483840246462394947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,8 +72,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: 0
   attackSpeed: 10
-  target: {fileID: 0}
   damage: 1
+  visualAttack: {fileID: 0}
 --- !u!114 &483840246462395007
 MonoBehaviour:
   m_ObjectHideFlags: 0

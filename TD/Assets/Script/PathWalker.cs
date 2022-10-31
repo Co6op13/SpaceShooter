@@ -6,11 +6,11 @@ using PathCreation;
 
 public class PathWalker : MonoBehaviour, IMoveAction
 {
+    [SerializeField] private float randomOffsetX, randomOffsetY;
     public PathCreator pathCreator;
     public EndOfPathInstruction endOfPathInstruction;
     public float speed = 5;
     private float distanceTravelled;
-    private float randomOffsetX, randomOffsetY;
 
     private void OnEnable()
     {
@@ -18,8 +18,8 @@ public class PathWalker : MonoBehaviour, IMoveAction
     }
     void Start()
     {
-        randomOffsetY = Random.Range(-3f, 3f);
-        randomOffsetX = Random.Range(-3f, 3f);
+        randomOffsetY = Random.Range(-randomOffsetX, randomOffsetX);
+        randomOffsetX = Random.Range(-randomOffsetY, randomOffsetY);
 
         if (pathCreator != null)
         {

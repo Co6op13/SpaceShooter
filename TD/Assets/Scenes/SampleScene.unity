@@ -308,41 +308,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 369087831392552867, guid: 3dead8e40fab9d1439d37c1413d40e23, type: 3}
   m_PrefabInstance: {fileID: 1042157259}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &354798798 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 483840247007315418, guid: a4b6106a2daff9b4ea99e0d7d7c72837, type: 3}
-  m_PrefabInstance: {fileID: 5873547314589830500}
-  m_PrefabAsset: {fileID: 0}
---- !u!60 &354798800
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 354798798}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.4, y: -0.2}
-      - {x: -0.4, y: -0.2}
-      - {x: -2, y: -3}
-      - {x: 0, y: -4}
-      - {x: 2, y: -3}
 --- !u!4 &356259891 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 369087831392552867, guid: 3dead8e40fab9d1439d37c1413d40e23, type: 3}
@@ -10271,6 +10236,11 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!4 &794351163 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 483840248262026582, guid: a4b6106a2daff9b4ea99e0d7d7c72837, type: 3}
+  m_PrefabInstance: {fileID: 5873547314589830500}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &820081641
 GameObject:
   m_ObjectHideFlags: 0
@@ -10546,6 +10516,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3dead8e40fab9d1439d37c1413d40e23, type: 3}
+--- !u!1 &1067401256
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1067401257}
+  m_Layer: 0
+  m_Name: AttackAreaCenter
+  m_TagString: Untagged
+  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1067401257
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067401256}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -2.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 794351163}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1141073492
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11229,6 +11230,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 417713170185323997, guid: a4b6106a2daff9b4ea99e0d7d7c72837, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 417713170185323997, guid: a4b6106a2daff9b4ea99e0d7d7c72837, type: 3}
+      propertyPath: lengthInSec
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 417713170185323997, guid: a4b6106a2daff9b4ea99e0d7d7c72837, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 417713170447191655, guid: a4b6106a2daff9b4ea99e0d7d7c72837, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 417713170447191674, guid: a4b6106a2daff9b4ea99e0d7d7c72837, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 417713170447191674, guid: a4b6106a2daff9b4ea99e0d7d7c72837, type: 3}
+      propertyPath: lengthInSec
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 417713170447191674, guid: a4b6106a2daff9b4ea99e0d7d7c72837, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 417713170447191674, guid: a4b6106a2daff9b4ea99e0d7d7c72837, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 483840246462395000, guid: a4b6106a2daff9b4ea99e0d7d7c72837, type: 3}
       propertyPath: m_Name
       value: Flamethrower
@@ -11278,9 +11311,41 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2392095619856961308, guid: a4b6106a2daff9b4ea99e0d7d7c72837, type: 3}
+      propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392095619856961308, guid: a4b6106a2daff9b4ea99e0d7d7c72837, type: 3}
       propertyPath: attackArea
       value: 
-      objectReference: {fileID: 354798800}
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392095619856961308, guid: a4b6106a2daff9b4ea99e0d7d7c72837, type: 3}
+      propertyPath: attackSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392095619856961308, guid: a4b6106a2daff9b4ea99e0d7d7c72837, type: 3}
+      propertyPath: layer.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392095619856961308, guid: a4b6106a2daff9b4ea99e0d7d7c72837, type: 3}
+      propertyPath: attackAreaCenter
+      value: 
+      objectReference: {fileID: 1067401257}
+    - target: {fileID: 2392095619856961308, guid: a4b6106a2daff9b4ea99e0d7d7c72837, type: 3}
+      propertyPath: sizeOverlapBox.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392095619856961308, guid: a4b6106a2daff9b4ea99e0d7d7c72837, type: 3}
+      propertyPath: sizeOverlapBox.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392095619856961308, guid: a4b6106a2daff9b4ea99e0d7d7c72837, type: 3}
+      propertyPath: sizeOverlapCircle
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392095619856961308, guid: a4b6106a2daff9b4ea99e0d7d7c72837, type: 3}
+      propertyPath: offsetOverlapBox.y
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4b6106a2daff9b4ea99e0d7d7c72837, type: 3}
 --- !u!1001 &8057196906706299319

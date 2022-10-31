@@ -34,12 +34,19 @@ public class TowerLongRange : MonoBehaviour
     {
         if (currentTarget != null && targets.Contains(currentTarget))
         {
-            rotateAction.RotateToTarget(currentTarget.transform.position);
-            attackAction.AttackTarget(currentTarget);
-            if (currentTarget.activeSelf == false) DropCuurentTarget(currentTarget);
+            StartCoroutine(RotateToAttack());
         }
         else GetCurrentTarget();
 
+    }
+
+    private IEnumerator RotateToAttack()
+    {
+        rotateAction.RotateToTarget(currentTarget.transform.position);
+        yield return new WaitForSeconds(0.1f);
+        attackAction.AttackTarget(currentTarget);
+        if (currentTarget.activeSelf == false) DropCuurentTarget(currentTarget);
+        yield break;
     }
 
     private void GetCurrentTarget()
@@ -53,7 +60,6 @@ public class TowerLongRange : MonoBehaviour
     private void DropCuurentTarget(GameObject target)
     {
         targets.Remove(target);
-        Debug.Log(targets.Count);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

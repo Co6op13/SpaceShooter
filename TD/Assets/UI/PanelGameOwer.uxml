@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:VisualElement name="PanelGameOwer" style="width: 60%; height: 80%; justify-content: flex-start; align-items: center; flex-direction: column; background-color: rgba(103, 103, 103, 0.33); visibility: visible;">
+        <ui:Label text="GameOwer" display-tooltip-when-elided="true" style="width: 80%; height: 20%; bottom: auto; top: auto; font-size: 114px; align-items: flex-start; -unity-text-align: upper-center; -unity-font-style: bold; justify-content: flex-start;" />
+        <ui:Button text="Restart" display-tooltip-when-elided="true" name="Restart" class="menu-button gameOwerMenyButton gameOwerMenyBytton" />
+        <ui:Button text="Main Meny" display-tooltip-when-elided="true" name="MainMeny" class="menu-button gameOwerMenyButton gameOwerMenyBytton" />
+        <ui:Button text="Resume" display-tooltip-when-elided="true" name="Resume" class="menu-button gameOwerMenyButton gameOwerMenyBytton" style="top: 60px;" />
+    </ui:VisualElement>
+</ui:UXML>

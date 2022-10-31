@@ -56,7 +56,7 @@ public class CrawlingEnemy : MonoBehaviour
     private void DropCuurentTarget(GameObject target)
     {
         targets.Remove(target);
-        Debug.Log(targets.Count);
+        //Debug.Log(targets.Count);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

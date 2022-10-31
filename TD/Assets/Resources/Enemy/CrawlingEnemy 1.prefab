@@ -247,8 +247,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: 0
   attackSpeed: 10
+  currentTarget: {fileID: 0}
   damage: 2
-  visualAttack: {fileID: 0}
+  tracerMatertial: {fileID: 0}
+  tracers: []
+  firePoint: {fileID: 0}
 --- !u!114 &7269448669093628387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,8 +279,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: 0
   attackSpeed: 2
+  currentTarget: {fileID: 0}
   damage: 10
-  visualAttack: {fileID: 0}
+  tracerMatertial: {fileID: 0}
+  tracers: []
+  firePoint: {fileID: 0}
 --- !u!50 &7269448669093628398
 Rigidbody2D:
   serializedVersion: 4

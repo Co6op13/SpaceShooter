@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,16 +30,23 @@ public class FlameWeapon : Weapon
             isAttacked = true;
             StartCoroutine(GetTargetsOnAttackArea());
             StartCoroutine(AddVisualEffect());
-            foreach (var col in collidersEnemyInAttackArea)
-            {
-                if (col.gameObject.GetComponent<IHPConttroller>() != null)
-                {
-                    IHPConttroller HP = col.gameObject.GetComponent<IHPConttroller>();
-                    HP.TakesDamage(damage);
-                }
-            }
+            StartCoroutine(AttackTargts());
             Invoke("CancelAttack", delaySeconds);
         }
+    }
+
+    private IEnumerator AttackTargts()
+    {
+        foreach (var col in collidersEnemyInAttackArea)
+        {
+            if (col.gameObject.GetComponent<IHPConttroller>() != null)
+            {
+                IHPConttroller HP = col.gameObject.GetComponent<IHPConttroller>();
+                HP.TakesDamage(damage);
+            }
+        }
+        yield return new WaitForSeconds(delaySeconds);
+        yield break;
     }
 
     private IEnumerator GetTargetsOnAttackArea()

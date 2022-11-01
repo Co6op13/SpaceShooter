@@ -5,13 +5,12 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour, IAttackAction
 {
-    [SerializeField] protected BulletType bullet;
+    [SerializeField] protected BulletType bulletType;
     [SerializeField] protected float attackSpeed;
     [SerializeField] protected GameObject currentTarget;
     [SerializeField] protected int damage;
     [SerializeField] protected Transform firePoint;
     protected float distanceToFirepoint;
-    protected IHPConttroller HPcontroller;
     protected float delaySeconds;
     protected bool isAttacked = false;
 
@@ -35,9 +34,9 @@ public abstract class Weapon : MonoBehaviour, IAttackAction
         isAttacked = false;
     }
 
-    private void GetHPControllerFromTarget(GameObject target)
+    protected IHPConttroller GetHPControllerFromTarget(GameObject target)
     {
-        HPcontroller = target.GetComponent<IHPConttroller>();
+         return target.GetComponent<IHPConttroller>();
     }
 
     public void AttackTarget(GameObject target)
@@ -48,5 +47,7 @@ public abstract class Weapon : MonoBehaviour, IAttackAction
     }
 
     protected abstract void Attack();
+
+
 
 }

@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class FlameWeapon : Weapon
 {
-    [SerializeField] private ParticleSystem flame;
-    [SerializeField] private PolygonCollider2D attackArea;
+    [SerializeField] protected ParticleSystem visualParticles;
     [SerializeField] private LayerMask layer;
     [SerializeField] private Collider2D[] collidersEnemyInAttackArea;
     [SerializeField] private float sizeOverlapCircle;
@@ -14,11 +13,8 @@ public class FlameWeapon : Weapon
 
     protected IEnumerator AddVisualEffect()
     {
-
-        Vector3 direction = (currentTarget.transform.position - transform.position).normalized;
-        float angle = AccessoryMetods.GetAngleFromVectorFloat(direction);
-        float distance = Vector3.Distance(currentTarget.transform.position, transform.position) - distanceToFirepoint;
-        flame.Play();
+        var particle = ProjectileObjectPool.Instance.GetFromPool(visualParticles.name, firePoint.position, firePoint.rotation);
+        particle.SetActive(true);
         yield return new WaitForSeconds(delaySeconds);
         yield break;
     }
@@ -41,7 +37,7 @@ public class FlameWeapon : Weapon
         {
             if (col.gameObject.GetComponent<IHPConttroller>() != null)
             {
-                IHPConttroller HP = col.gameObject.GetComponent<IHPConttroller>();
+                IHPConttroller HP = GetHPControllerFromTarget(col.gameObject);//  col.gameObject.GetComponent<IHPConttroller>();
                 HP.TakesDamage(damage);
             }
         }

@@ -49,6 +49,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedMovement: 30
+  lifeTime: 1
+  timeToDisableAfterTriger: 0.1
+  damage: 0
+  curentLifeTime: 0
+  tagWhoProjectileAttacked: 0
 --- !u!50 &263787457
 Rigidbody2D:
   serializedVersion: 4
@@ -121,7 +126,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3416150012383007273}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.25, y: 0, z: 0.05107605}
+  m_LocalPosition: {x: 0, y: 0, z: 0.05107605}
   m_LocalScale: {x: 0.2, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -206,7 +211,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3416150012884606370}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.15, y: 0, z: 0.05107605}
+  m_LocalPosition: {x: 0.1, y: 0, z: 0.05107605}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -316,7 +321,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.24997991
+        value: 0.116648614
         inSlope: -0.0014682794
         outSlope: -0.0014682794
         tangentMode: 0

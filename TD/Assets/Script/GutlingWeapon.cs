@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public partial class DistanceWeapon : Weapon
+public partial class GutlingWeapon : Weapon
 {
     [SerializeField] private GameObject bulletPrefab;
     private IHPConttroller HPcontrollerCurrentTarget;
@@ -15,30 +15,21 @@ public partial class DistanceWeapon : Weapon
         if (!isAttacked)
         {
             isAttacked = true;
-            HPcontrollerCurrentTarget = GetHPControllerFromTarget(currentTarget);
-            StartCoroutine(AddVisualEffect());
-            StartCoroutine(AttackTargt());
+            StartCoroutine(Shooting());
             Invoke("CancelAttack", delaySeconds);
         }
     }
 
-    private IEnumerator AttackTargt()
-    {
-        HPcontrollerCurrentTarget.TakesDamage(damage);
-        yield return new WaitForSeconds(delaySeconds);
-        yield break;
-    }
 
-    protected IEnumerator AddVisualEffect()
+    protected IEnumerator Shooting()
     {
-        ProjectileObjectPool.Instance.GetFromPool(bulletPrefab.name, firePoint.position, firePoint.rotation);
-        yield return new WaitForSeconds(0.1f);
-        ProjectileObjectPool.Instance.GetFromPool(bulletPrefab.name, firePoint2.position, firePoint2.rotation);
-        yield return new WaitForSeconds(0.1f);
-        ProjectileObjectPool.Instance.GetFromPool(bulletPrefab.name, firePoint.position, firePoint.rotation);
-        yield return new WaitForSeconds(0.1f);
-        ProjectileObjectPool.Instance.GetFromPool(bulletPrefab.name, firePoint2.position, firePoint2.rotation);
-        yield return new WaitForSeconds(0.1f);
+        GameObject projectile;
+            projectile = ProjectileObjectPool.Instance.GetFromPool(bulletPrefab.name, firePoint.position, firePoint.rotation);
+            projectile.GetComponent<IDamagable>().SetDamage(damage);
+            yield return new WaitForSeconds(0.1f);
+            projectile = ProjectileObjectPool.Instance.GetFromPool(bulletPrefab.name, firePoint2.position, firePoint2.rotation);
+            projectile.GetComponent<IDamagable>().SetDamage(damage);
+            yield return new WaitForSeconds(0.1f);     
         yield break;
     }
 

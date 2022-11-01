@@ -42,7 +42,6 @@ public abstract class Weapon : MonoBehaviour, IAttackAction
     public void AttackTarget(GameObject target)
     {
         currentTarget = target;
-        GetHPControllerFromTarget(target); //////////////
         Attack();
     }
 

@@ -19,7 +19,8 @@
         </ui:VisualElement>
     </ui:VisualElement>
     <ui:VisualElement name="TowerMenu" style="width: auto; height: 10%; justify-content: flex-start; flex-shrink: 0; flex-grow: 0; align-items: flex-start; flex-direction: row; background-image: none;">
-        <ui:Button text="addTower1" display-tooltip-when-elided="true" name="Gutling" class="menu-button" style="height: 95%;" />
-        <ui:Button text="addTower2" display-tooltip-when-elided="true" name="Flamethrower" class="menu-button" style="height: 95%;" />
+        <ui:Button text="addTowerGutling" display-tooltip-when-elided="true" name="Gutling" class="menu-button" style="height: 95%;" />
+        <ui:Button text="addTowerFlamethrower" display-tooltip-when-elided="true" name="Flamethrower" class="menu-button" style="height: 95%;" />
+        <ui:Button text="addTowerPlasmaGun" display-tooltip-when-elided="true" name="PlasmaGun" class="menu-button" style="height: 95%;" />
     </ui:VisualElement>
 </ui:UXML>

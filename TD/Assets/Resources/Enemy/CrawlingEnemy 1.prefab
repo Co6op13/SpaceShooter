@@ -154,20 +154,19 @@ GameObject:
   m_Component:
   - component: {fileID: 7269448669093628392}
   - component: {fileID: 7269448669093628399}
+  - component: {fileID: 8990564349803715604}
   - component: {fileID: 8314242245558267034}
   - component: {fileID: 7269448669093628396}
-  - component: {fileID: 7269448669093628386}
   - component: {fileID: 7269448669093628387}
-  - component: {fileID: 7269448669093628385}
   - component: {fileID: 7269448669093628398}
   - component: {fileID: 7269448669093628384}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CrawlingEnemy 1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7269448669093628392
 Transform:
   m_ObjectHideFlags: 0
@@ -205,6 +204,24 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   targets: []
   isAttack: 0
+--- !u!114 &8990564349803715604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7269448669093628394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5d0462ac6ce03644aa661f46c768515, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletType: 0
+  attackSpeed: 5
+  currentTarget: {fileID: 0}
+  damage: 25
+  firePoint: {fileID: 7269448669643869694}
+  spittingPrefab: {fileID: 6955907091228286591, guid: 27e3af3029a424343a3c17dee8a5e811, type: 3}
 --- !u!114 &8314242245558267034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,28 +247,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0db0ceca9068ff49bc6280553910486, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomOffsetX: 3
+  randomOffsetY: 3
   pathCreator: {fileID: 0}
   endOfPathInstruction: 0
   speed: 2
---- !u!114 &7269448669093628386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7269448669093628394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be251303c902295409f65289d4b9c232, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: 0
-  attackSpeed: 10
-  currentTarget: {fileID: 0}
-  damage: 2
-  tracerMatertial: {fileID: 0}
-  tracers: []
-  firePoint: {fileID: 0}
 --- !u!114 &7269448669093628387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,25 +265,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedRotateAttack: 0.25
---- !u!114 &7269448669093628385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7269448669093628394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be251303c902295409f65289d4b9c232, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: 0
-  attackSpeed: 2
-  currentTarget: {fileID: 0}
-  damage: 10
-  tracerMatertial: {fileID: 0}
-  tracers: []
-  firePoint: {fileID: 0}
 --- !u!50 &7269448669093628398
 Rigidbody2D:
   serializedVersion: 4
@@ -387,14 +368,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7269448669643869689}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -1.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7269448669270113319}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1 &7269448669994420945
 GameObject:
   m_ObjectHideFlags: 0

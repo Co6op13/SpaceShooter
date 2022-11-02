@@ -18,8 +18,8 @@ TagManager:
   - PlaceForTower
   - Enemy
   - Tower
-  - Bullets
-  - 
+  - TowerProjectile
+  - EnemyProjectile
   - 
   - 
   - 

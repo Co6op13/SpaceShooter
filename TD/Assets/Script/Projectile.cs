@@ -10,6 +10,7 @@ public enum TagWhoProjectileAttacked
 
 public class Projectile : MonoBehaviour, IDamagable
 {
+    [SerializeField] private bool triggerd = false;
     [SerializeField] private float speedMovement;
     [SerializeField] private float lifeTime;
     [SerializeField] private float timeToDisableAfterTriger;
@@ -19,13 +20,19 @@ public class Projectile : MonoBehaviour, IDamagable
     private Rigidbody2D rb2d;
 
     private void OnEnable()
-    {        
+    {
+        SetDefaultParamedters();
+    }
+
+    private void SetDefaultParamedters()
+    {
         curentLifeTime = lifeTime;
+        triggerd = false;
     }
 
     private void Start()
     {
-        curentLifeTime = lifeTime;
+        SetDefaultParamedters();
         rb2d = GetComponent<Rigidbody2D>();
     }
     private void FixedUpdate()
@@ -37,11 +44,11 @@ public class Projectile : MonoBehaviour, IDamagable
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log(collision.name);
-        if (collision.CompareTag(tagWhoProjectileAttacked.ToString()))
+        if (collision.CompareTag(tagWhoProjectileAttacked.ToString()) && !triggerd)
         {
+            triggerd = true;
             collision.gameObject.GetComponent<IHPConttroller>().TakesDamage(damage);
-            
-            Invoke("CancelAttack", timeToDisableAfterTriger);
+            Invoke("DisableProjectile", timeToDisableAfterTriger);
         }
     }
 
@@ -50,15 +57,13 @@ public class Projectile : MonoBehaviour, IDamagable
         this.damage = damage;
     }
 
-    //private void OnTriggerExit2D(Collider2D collision)
-    //{        
-    //    if (collision.CompareTag(tagWhoProjectileAttacked.ToString())) 
-    //        gameObject.SetActive(false); gameObject.SetActive(false);
-    //}
-
     private void DisableProjectile()
     {
         gameObject.SetActive(false); gameObject.SetActive(false);
-    }            
-    
+    }
+
+    public void SetTarget(GameObject target)
+    {
+        throw new System.NotImplementedException();
+    }
 }

@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 483840246462395006}
   - component: {fileID: 483840246462395002}
   - component: {fileID: 483840246462394946}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Flamethrower
   m_TagString: Tower
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f231573de55dbdc4bba667cc07c3a4d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: 0
+  bulletType: 0
   attackSpeed: 10
   currentTarget: {fileID: 0}
   damage: 10

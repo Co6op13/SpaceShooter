@@ -4,4 +4,5 @@ using UnityEngine;
 public interface IAttackAction
 {
     public void AttackTarget(GameObject target);
+    public int GetPriceTower();
 }

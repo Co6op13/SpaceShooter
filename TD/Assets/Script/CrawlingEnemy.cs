@@ -13,7 +13,8 @@ public class CrawlingEnemy : MonoBehaviour
     private IHPConttroller HPcontroller;
     [SerializeField] private GameObject currentTarget;
     [SerializeField] private List<GameObject> targets;
-    [SerializeField] private bool isAttack = false;
+    //[SerializeField] private bool isAttack = false;
+    private bool trigger = false;
 
     private void Awake()
     {
@@ -77,6 +78,10 @@ public class CrawlingEnemy : MonoBehaviour
 
     private void OnDisable()
     {
-        MyEventManager.SendEnemyKilled(priceToKill);        
+        if (trigger)
+        {
+            MyEventManager.SendEnemyKilled(priceToKill);
+        }
+            trigger = true;
     }
 }

@@ -10,8 +10,7 @@ public class EnemyAcidWeapon : Weapon
     {
         if (!isAttacked)
         {
-            isAttacked = true;
-            //HPcontrollerCurrentTarget = GetHPControllerFromTarget(currentTarget);
+            isAttacked = true;           
             StartCoroutine(Spitting());
             Invoke("CancelAttack", delaySeconds);
         }
@@ -23,7 +22,11 @@ public class EnemyAcidWeapon : Weapon
         Debug.Log("test Split");
         yield return new WaitForSeconds(0.1f);
         projectile = ProjectileObjectPool.Instance.GetFromPool(spittingPrefab.name, firePoint.position, firePoint.rotation);
-        projectile.GetComponent<IDamagable>().SetDamage(damage);
+        projectile.layer = LayerMask.NameToLayer("EnemyProjectile");/////////
+        var script = projectile.GetComponent<IDamagable>();
+        script.SetDamage(damage);
+        script.SetTarget(currentTarget);
+
         yield break;
     }
 }

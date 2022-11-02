@@ -9595,7 +9595,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 300
+  m_SortingOrder: 1000
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -9635,11 +9635,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4052583604721541313}
-  - component: {fileID: 7275769908114964545}
+  - component: {fileID: 6595487666492108727}
   - component: {fileID: 8572987222418442157}
   - component: {fileID: 1366531575245385620}
-  m_Layer: 11
-  m_Name: Spliting
+  m_Layer: 12
+  m_Name: AcidSpliting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9661,7 +9661,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7275769908114964545
+--- !u!114 &6595487666492108727
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9670,15 +9670,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 6955907091228286591}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80a77ae454d14974b9bfe71f1fa01b3b, type: 3}
+  m_Script: {fileID: 11500000, guid: 374cef94e3578ed4e9b34a4159ad9664, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speedMovement: 2
   lifeTime: 2
-  timeToDisableAfterTriger: 0.01
+  target: {fileID: 0}
   damage: 0
   curentLifeTime: 0
-  tagWhoProjectileAttacked: 1
+  tagWhoProjectileAttacked: 0
+  distanceDamage: 0.2
 --- !u!61 &8572987222418442157
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14507,7 +14508,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 300
+  m_SortingOrder: 1000
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0

@@ -31,6 +31,7 @@ public class UI : MonoBehaviour
         moneyLabel = root.Q<Label>("moneyLabel");
         Button Flamethrower = root.Q<Button>("Flamethrower");
         Button Gutling = root.Q<Button>("Gutling");
+        Button PlasmaGun = root.Q<Button>("PlasmaGun");
         Button TestCreateEnemy1 = root.Q<Button>("TestCreateEnemy1");
         Button TestCreateEnemy2 = root.Q<Button>("TestCreateEnemy2");
         Button Resume = root.Q<Button>("Resume");
@@ -47,6 +48,7 @@ public class UI : MonoBehaviour
         Resume.clicked += HideMenyGameOwer;
         Flamethrower.clicked += towerManager.AddFlamethrower;
         Gutling.clicked += towerManager.AddGutling;
+        PlasmaGun.clicked += towerManager.AddPlasmaGun;
         TestCreateEnemy1.clicked += EnemyManager.AddEnemy1;
         TestCreateEnemy2.clicked += EnemyManager.AddEnemy2;
     }

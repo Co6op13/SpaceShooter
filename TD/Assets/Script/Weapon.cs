@@ -5,6 +5,7 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour, IAttackAction
 {
+    [SerializeField] private int priceTower;
     [SerializeField] protected BulletType bulletType;
     [SerializeField] protected float attackSpeed;
     [SerializeField] protected GameObject currentTarget;
@@ -47,6 +48,8 @@ public abstract class Weapon : MonoBehaviour, IAttackAction
 
     protected abstract void Attack();
 
-
-
+    public int GetPriceTower()
+    {
+        return priceTower;
+    }
 }

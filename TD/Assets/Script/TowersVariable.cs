@@ -1,8 +1,9 @@
-﻿public enum TowersVariable
+﻿public enum TowersVariable 
 {
     Gutling,
     Flamethrower,
     SlowingBeam,
     Tesla,
-    Rocket
+    Rocket,
+    PlasmaGun
 }

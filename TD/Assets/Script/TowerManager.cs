@@ -2,8 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//public static class TowersPrice
+//{
+//    static TowersVariable name;
+//    static int priceTower;    
+//}
+
+[System.Serializable]
+struct TowersPrice
+{
+    public TowersVariable name;
+    public int price;
+};
+
 public class TowerManager : MonoBehaviour
 {
+    [SerializeField] private List<TowersPrice> price;
     [SerializeField] string directoryToTowerPrefabs;
     [SerializeField] private int coins;
     [SerializeField] private TowersVariable towersVariable;
@@ -31,11 +45,22 @@ public class TowerManager : MonoBehaviour
     }
 
     public void AddGutling()
-    {
+    {      
+        if (GameManager.Instance.GetAmountMoney() >= price[0].price)            
         AddTower(TowersVariable.Gutling);
     }
     public void AddFlamethrower()
     {
-        AddTower(TowersVariable.Flamethrower);
+        if (GameManager.Instance.GetAmountMoney() >= price[1].price)
+        {
+            GameManager.Instance.GetMoney(price[1].price);
+            AddTower(TowersVariable.Flamethrower);
+        }
+    }
+
+    public void AddPlasmaGun()
+    {
+        if (GameManager.Instance.GetAmountMoney() >= price[2].price)
+            AddTower(TowersVariable.PlasmaGun);
     }
 }

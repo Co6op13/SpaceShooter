@@ -2,12 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//public static class TowersPrice
-//{
-//    static TowersVariable name;
-//    static int priceTower;    
-//}
-
 [System.Serializable]
 struct TowersPrice
 {
@@ -15,27 +9,38 @@ struct TowersPrice
     public int price;
 };
 
+public enum TowersVariable
+{
+    Gutling,
+    Flamethrower,
+    PlasmaGun
+}
+
 public class TowerManager : MonoBehaviour
 {
-    [SerializeField] private List<TowersPrice> price;
+    [SerializeField] private List<TowersPrice> towerPrice;
     [SerializeField] string directoryToTowerPrefabs;
-    [SerializeField] private int coins;
     [SerializeField] private TowersVariable towersVariable;
     [SerializeField] private Vector3 positionForNewTower = Vector3.zero;
-
     public static TowerManager Instance;
 
     private void Awake()
     {
-        Instance = this;
+        Instance = this;      
     }
-    private void AddTower(TowersVariable towersVariable)
+    private void AddTower(TowersVariable variable)
     {
-        Debug.Log(towersVariable.ToString());
-        if (positionForNewTower !=  Vector3.zero)
+        Debug.Log(variable.ToString());
+        if (positionForNewTower != Vector3.zero)
         {
-            Instantiate(Resources.Load(directoryToTowerPrefabs + towersVariable.ToString()), positionForNewTower, transform.rotation);
-            positionForNewTower = Vector3.zero;
+            int i = towerPrice.FindIndex(towerPrice => towerPrice.name == (variable));
+            Debug.Log(i);
+            if (GameManager.Instance.GetAmountMoney() >= towerPrice[i].price)
+            {
+                MyEventManager.SendOnGetMoney(towerPrice[i].price);
+                Instantiate(Resources.Load(directoryToTowerPrefabs + variable.ToString()), positionForNewTower, transform.rotation);
+                positionForNewTower = Vector3.zero;
+            }
         }
     }
 
@@ -45,22 +50,16 @@ public class TowerManager : MonoBehaviour
     }
 
     public void AddGutling()
-    {      
-        if (GameManager.Instance.GetAmountMoney() >= price[0].price)            
+    {
         AddTower(TowersVariable.Gutling);
     }
     public void AddFlamethrower()
     {
-        if (GameManager.Instance.GetAmountMoney() >= price[1].price)
-        {
-            GameManager.Instance.GetMoney(price[1].price);
-            AddTower(TowersVariable.Flamethrower);
-        }
+        AddTower(TowersVariable.Flamethrower);
     }
 
     public void AddPlasmaGun()
     {
-        if (GameManager.Instance.GetAmountMoney() >= price[2].price)
-            AddTower(TowersVariable.PlasmaGun);
+        AddTower(TowersVariable.PlasmaGun);
     }
 }

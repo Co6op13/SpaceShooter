@@ -7,4 +7,5 @@
 .gameOwerMenyButton:hover {
     width: 55%;
     height: 20%;
+    transition-duration: 1s;
 }

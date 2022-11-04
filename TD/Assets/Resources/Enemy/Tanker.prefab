@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 7269448669093628398}
   - component: {fileID: 7269448669093628384}
   m_Layer: 9
-  m_Name: CrawlingEnemy 1
+  m_Name: Tanker
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

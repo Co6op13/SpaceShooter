@@ -1,0 +1,34 @@
+:root {
+    --color-1: rgba(0, 0, 0, 0.75);
+    --color-2: rgb(108, 160, 195);
+    font-size-h1: 35px;
+    background-image: url('project://database/Assets/UI/test/TD.jpg?fileID=2800000&guid=124d17006e2f0ed46bc711c66760b75c&type=3#TD');
+    color: var(--color-2);
+}
+
+#Container {
+    flex-grow: 1;
+    background-image: var(--background-img);
+    flex-direction: row;
+}
+#Menu {
+    width: 28%;
+    flex-direction: row;
+}
+#Menu > VisualElement {
+    background-color: var(--color-1);
+}
+#Navigation {
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-size: var(--font-size-h2);
+    -unity-text-align: upper-center;
+}
+
+#DecorativeBar {
+    width: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}

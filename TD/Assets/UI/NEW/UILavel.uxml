@@ -1,0 +1,17 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/NEW/UILavelStyle.uss?fileID=7433441132597879392&amp;guid=1a1d5c8038f8fe7449249bf3c01f04f4&amp;type=3#UILavelStyle" />
+    <ui:VisualElement name="Conteiner" style="flex-grow: 1;">
+        <ui:VisualElement name="TopPanel" style="height: 5%;">
+            <ui:Label text="Label" display-tooltip-when-elided="true" />
+        </ui:VisualElement>
+        <ui:VisualElement name="TowerPanel" />
+        <ui:VisualElement name="MenuPause" style="visibility: visible;">
+            <ui:VisualElement name="Panel">
+                <ui:Label text="Pause" display-tooltip-when-elided="true" style="font-size: 100%;" />
+                <ui:Button text="Restart" display-tooltip-when-elided="true" name="Restart" class="Button" />
+                <ui:Button text="Settings" display-tooltip-when-elided="true" name="Settings" class="Button" />
+                <ui:Button text="Exit" display-tooltip-when-elided="true" name="Exit" class="Button" style="top: 10%;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

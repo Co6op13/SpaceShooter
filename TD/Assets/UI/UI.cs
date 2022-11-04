@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
 
- 
+
 
 public class UI : MonoBehaviour
 {
@@ -11,7 +11,10 @@ public class UI : MonoBehaviour
     VisualElement towerMenu;
     VisualElement menu;
     VisualElement panelGameOwer;
+    VisualElement panelPause;
     Label moneyLabel;
+    private const string AnimHideTowerMeny = "popAnimationHide";
+    private const string AnimShowTowerMenu = "popAnimationShow";
 
 
 
@@ -24,33 +27,51 @@ public class UI : MonoBehaviour
 
     private void OnEnable()
     {
+
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;
         towerMenu = root.Q<VisualElement>("TowerMenu");
         menu = root.Q<VisualElement>("Menu");
         panelGameOwer = root.Q<VisualElement>("PanelGameOwer");
-        moneyLabel = root.Q<Label>("moneyLabel");
+        panelPause = root.Q<VisualElement>("PanelPause");
+        moneyLabel = root.Q<Label>("MoneyLabel");
         Button Flamethrower = root.Q<Button>("Flamethrower");
         Button Gutling = root.Q<Button>("Gutling");
         Button PlasmaGun = root.Q<Button>("PlasmaGun");
         Button TestCreateEnemy1 = root.Q<Button>("TestCreateEnemy1");
         Button TestCreateEnemy2 = root.Q<Button>("TestCreateEnemy2");
         Button Resume = root.Q<Button>("Resume");
-        Button Restart = root.Q<Button>("Restart");
+        Button RestartG = root.Q<Button>("RestartG");
+        Button RestartP = root.Q<Button>("RestartP");
+        Button Pause = root.Q<Button>("Pause");
 
-        menu.style.visibility = Visibility.Hidden;
-        panelGameOwer.style.visibility = Visibility.Hidden;
-        towerMenu.style.visibility = Visibility.Hidden;        
 
-        MyEventManager.OnEnemyKilled.AddListener(ChangesAmpontMoney);
+   
+
+        MyEventManager.OnChencheAmountMony.AddListener(GetAmontMoney);
         MyEventManager.OnDestroyBase.AddListener(ShowMenyGameOwer);
+        MyEventManager.OnPauseEnable.AddListener(ShowMenuPause);
 
-        Restart.clicked += RestartScene;
-        Resume.clicked += HideMenyGameOwer;
+        Pause.clicked += GameManager.Instance.GamePauseEnable;
+        RestartG.clicked += RestartScene;
+        RestartP.clicked += RestartScene;
+        Resume.clicked += HideAllMeny;
+        Resume.clicked += GameManager.Instance.GamePauseDisable;
         Flamethrower.clicked += towerManager.AddFlamethrower;
         Gutling.clicked += towerManager.AddGutling;
         PlasmaGun.clicked += towerManager.AddPlasmaGun;
-        TestCreateEnemy1.clicked += EnemyManager.AddEnemy1;
-        TestCreateEnemy2.clicked += EnemyManager.AddEnemy2;
+        TestCreateEnemy1.clicked += EnemyManager.Instance.AddEnemy1;
+        TestCreateEnemy1.clicked += Test;
+        TestCreateEnemy2.clicked += EnemyManager.Instance.AddEnemy2;
+    }
+
+    private void Test()
+    {
+        Debug.Log("test");
+    }
+
+    private void Start()
+    {
+        GetAmontMoney();
     }
 
     private void RestartScene()
@@ -60,14 +81,22 @@ public class UI : MonoBehaviour
 
     public void ShowTowerMeny()
     {
-        Debug.Log("test22222");
-        towerMenu.style.visibility = Visibility.Visible;
+        Debug.Log("show");
+        towerMenu.EnableInClassList(AnimHideTowerMeny, false);
+        towerMenu.EnableInClassList(AnimShowTowerMenu, true);
+        // towerMenu.ToggleInClassList(AnimHideTowerMeny);
+        //towerMenu.EnableInClassList(AnimHideTowerMeny, false);
+        // towerMenu.style.visibility = Visibility.Visible;
+        //towerMenu.style.translate = new StyleTranslate(new Translate(0, 0, 0));
     }
 
     public void HideTowerMeny()
     {
-        Debug.Log("tes44444");
-        towerMenu.style.visibility = Visibility.Hidden;
+        Debug.Log("Hide");
+        towerMenu.EnableInClassList(AnimHideTowerMeny, true);
+        towerMenu.EnableInClassList(AnimShowTowerMenu, false);
+        // towerMenu.style.translate = new StyleTranslate(new Translate(0, 100, 0));
+        //towerMenu.style.visibility = Visibility.Hidden;
     }
 
     public void ShowMenyGameOwer()
@@ -75,14 +104,21 @@ public class UI : MonoBehaviour
         menu.style.visibility = Visibility.Visible;
         panelGameOwer.style.visibility = Visibility.Visible;
     }
-        public void HideMenyGameOwer()
+    public void HideAllMeny()
     {
         menu.style.visibility = Visibility.Hidden;
         panelGameOwer.style.visibility = Visibility.Hidden;
+        panelPause.style.visibility = Visibility.Hidden;
     }
 
+    public void ShowMenuPause()
+    {
+        menu.style.visibility = Visibility.Visible;
+        panelPause.style.visibility = Visibility.Visible;
+        
+    }
 
-    public void ChangesAmpontMoney (int coins)
+    public void GetAmontMoney()
     {
         moneyLabel.text = GameManager.Instance.GetAmountMoney().ToString();
     }

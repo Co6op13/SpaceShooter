@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TowerLongRange : MonoBehaviour
 {
-
     [SerializeField] private CircleCollider2D areaAttack;
     [SerializeField] private int maxHP;
     private IAttackAction attackAction;

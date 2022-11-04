@@ -1,0 +1,117 @@
+:root {
+    --color-1: rgba(0, 0, 0, 0.75);
+    --color-2: rgb(108, 160, 195);
+    --font-size-h1: 35px;
+    --font-size-h2: 30px;
+    --font-size-h3: 25px;
+    background-image: url('project://database/Assets/UI/test/TD.jpg?fileID=2800000&guid=124d17006e2f0ed46bc711c66760b75c&type=3#TD');
+    color: var(--color-2);
+}
+
+#Container {
+    flex-grow: 1;
+    background-image: var(--background-img);
+    flex-direction: row;
+}
+
+#Menu {
+    width: 28%;
+    flex-direction: row;
+    transition-property: opacity;
+    transition-duration: 0, 75s;
+    transition-timing-function: ease-out-back;
+}
+
+#Menu > VisualElement {
+    background-color: var(--color-1);
+}
+
+#Navigation {
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-size: var(--font-size-h2);
+    -unity-text-align: upper-center;
+}
+
+#DecorativeBar {
+    width: 6px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#Option {
+    transition-duration: 0.25s;
+    transition-timing-function: ease-out-back;
+}
+
+#Option:hover {
+    color: white;
+    font-size: var(--font-size-h1);
+}
+
+#Content {
+    align-items: stretch;
+    flex-grow: 1;
+    margin: 10px;
+}
+
+#Content #Header {
+    width: 100%;
+    font-size: var(--font-size-h2);
+    -unity-font-style: bold;
+    color: rgb(255, 255, 255);
+    -unity-text-align: upper-right;
+}
+
+#Body {
+    flex-grow: 1;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    align-items: flex-end;
+}
+
+#WidgetContainer {
+    width: 300px;
+    height: 200px;
+    border-color: rgb(0, 0, 0);
+    margin: 20px;
+    transition-duration: 0, 75s;
+    transition-delay: 0, 75s;
+    transition-timing-function: ease-out-back;
+    translate: 0 254px;
+}
+
+.pop-animation-hide {
+    opacity: 0;
+}
+
+#Image {
+    border-width: 2px;
+    height: 90%;
+    border-color: var(--color-1);
+    background-color: rgb(66, 66, 66);
+}
+
+#NavContainer {
+    height: 10%;
+    flex-direction: row;
+    margin: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+#Selector {
+    border-width: 2px;
+    border-color: var(--color-1);
+    width: 20px;
+    height: 20px;
+    border-radius: 50px;
+    margin: 5px;
+}
+
+.selector-filled {
+    background-color: var(--color-1);
+}

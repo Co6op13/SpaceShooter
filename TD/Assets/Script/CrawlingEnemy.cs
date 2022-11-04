@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CrawlingEnemy : MonoBehaviour
 {
+    [SerializeField] private EnemyVariable enemyType;
     [SerializeField] private Collider2D distanceAttack;
     [SerializeField] private int priceToKill;
     [SerializeField] private int maxHP;
@@ -80,8 +82,8 @@ public class CrawlingEnemy : MonoBehaviour
     {
         if (trigger)
         {
-            MyEventManager.SendEnemyKilled(priceToKill);
+            EnemyManager.Instance.AddMoneyForkillEnemy(enemyType);
         }
-            trigger = true;
+        trigger = true;
     }
 }

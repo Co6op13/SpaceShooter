@@ -5,6 +5,7 @@ public static class MyEventManager
 {
     public static UnityEvent<int> OnEnemyKilled = new UnityEvent<int>();
     public static UnityEvent<int> OnGetMoney = new UnityEvent<int>();
+    public static UnityEvent<int> OnTakeMoney = new UnityEvent<int>();
     public static UnityEvent OnDestroyBase = new UnityEvent();
     public static UnityEvent OnChencheAmountMony = new UnityEvent();
     public static UnityEvent OnPauseEnable = new UnityEvent();
@@ -15,6 +16,11 @@ public static class MyEventManager
     public static void SendEnemyKilled(int monyForKilled)
     {
         OnEnemyKilled.Invoke(monyForKilled);
+    }
+
+    public static void SendOnTakeMoney(int monyForKilled)
+    {
+        OnTakeMoney.Invoke(monyForKilled);
     }
 
     public static void SendStartCurrentWave()

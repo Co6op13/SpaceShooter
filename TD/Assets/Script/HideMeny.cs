@@ -8,7 +8,7 @@ public class HideMeny : MonoBehaviour, IPointerClickHandler
     //[SerializeField] UI UI;
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("HideTowerMeny");
-        UI.Instance .HideTowerMeny();
+        //Debug.Log("HideTowerMeny");
+        //UI.Instance .HideTowerMeny();
     }
 }

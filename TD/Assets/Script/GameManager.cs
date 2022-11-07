@@ -7,7 +7,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
-    [SerializeField] private bool isPaused;
+    //[SerializeField] private bool isPaused;
     [SerializeField] private int startMoney = 300;
     [SerializeField] private int amountMoney;
     [SerializeField] public bool startLavel = false;
@@ -16,13 +16,14 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        isPaused = false;
+        //isPaused = false;
         Time.timeScale = 1;
         DontDestroyOnLoad(this.gameObject);
     }
 
     private void OnEnable()
     {
+        MyEventManager.OnTakeMoney.AddListener(AddMoney);
         MyEventManager.OnEnemyKilled.AddListener(AddMoney);
         MyEventManager.OnGetMoney.AddListener(GetMoney);
         MyEventManager.OnPauseDisable.AddListener(GamePauseDisable);
@@ -60,14 +61,14 @@ public class GameManager : MonoBehaviour
 
     public void GamePauseEnable()
     {
-        isPaused = true;
+        //isPaused = true;
         Time.timeScale = 0;
         MyEventManager.SendPauseEnable();
     }
 
     public void GamePauseDisable()
     {
-        isPaused = false;
+        //isPaused = false;
         Time.timeScale = 1;
     }
 

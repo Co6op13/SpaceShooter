@@ -1,6 +1,8 @@
 :root {
     --translate-100: 0 100%;
     --translate-0: 0 0;
+    color: rgba(233, 233, 233, 255);
+    background-color: rgba(0, 0, 0, 0.13);
 }
 
 .menu-button {
@@ -44,7 +46,7 @@
     scale: 1 1;
     translate: 0 -200px;
     position: relative;
-    transition-duration: 0.5s;
+    transition-duration: 0.1s;
 }
 
 #TowerMenu {

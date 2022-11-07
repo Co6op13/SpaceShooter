@@ -1,10 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerLongRange : MonoBehaviour
+public class Tower : MonoBehaviour, ITower
 {
+
+    [SerializeField] private bool isSelected;
+    [SerializeField] private TowersVariable type;
     [SerializeField] private CircleCollider2D areaAttack;
+    [SerializeField] private GameObject VisualAreaAttack;
     [SerializeField] private int maxHP;
     private IAttackAction attackAction;
     private IHPConttroller HPcontroller;
@@ -12,7 +17,29 @@ public class TowerLongRange : MonoBehaviour
     private IRotateAction rotateAction;
     [SerializeField] private GameObject currentTarget;
     [SerializeField] private List<GameObject> targets;
+
+    //public bool IsSelected { get => isSelected; set => isSelected = value; }
+
     //[SerializeField] private bool isAttack = false;
+
+    public void SetAttackDistance(float distance)
+    {
+        areaAttack.radius = distance;
+    }
+
+    public void SetMaxHP(int maxHP)
+    {
+        this.maxHP = maxHP;
+    }
+
+    public void TowerSelected()
+    {
+        ShowVisualAttackArea();
+    }
+    public void TowerDeselected()
+    {
+        if (VisualAreaAttack != null) VisualAreaAttack.SetActive(false);
+    }
 
     private void Awake()
     {
@@ -24,10 +51,16 @@ public class TowerLongRange : MonoBehaviour
         rotateAction = GetComponent<IRotateAction>();
     }
 
+    public TowersVariable GetTowerType()
+    {
+        return type;
+    }
+
     private void OnEnable()
     {
         HPcontroller.SetMaxHP(maxHP);
     }
+
 
     private void FixedUpdate()
     {
@@ -36,7 +69,14 @@ public class TowerLongRange : MonoBehaviour
             StartCoroutine(RotateToAttack());
         }
         else GetCurrentTarget();
+       
+    }
 
+    private void ShowVisualAttackArea()
+    {
+        VisualAreaAttack.SetActive(true);
+        float distance = areaAttack.radius;
+        VisualAreaAttack.transform.localScale = new Vector3(distance, distance, 1f);
     }
 
     private IEnumerator RotateToAttack()
@@ -82,4 +122,6 @@ public class TowerLongRange : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, distanceAttack);
     }
+
+
 }

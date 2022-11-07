@@ -31,7 +31,7 @@ public class Wawe
     [SerializeField] public List<EnemySpawnOptions> enemies;
     [SerializeField] public bool IsActive = false;
     [SerializeField] public bool IsEnd = false;
-    private int i = 0;
+    //private int i = 0;
 }
 
 public class EnemyManager : MonoBehaviour
@@ -43,8 +43,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private Vector3 pointSpawn;
     [SerializeField] private Wawe[] waves;
     public static EnemyManager Instance;
-    int i = 0;
-    int t;
+ //   int Current = 0;
 
     private void Awake()
     {
@@ -75,9 +74,9 @@ public class EnemyManager : MonoBehaviour
         foreach (var enemy in wave.enemies)
         {
             yield return new WaitForSeconds(enemy.delay);
-            Debug.Log(enemy.type + "   i =" + i + "  " + enemy.delay);
+ //           Debug.Log(enemy.type + "   i =" + Current + "  " + enemy.delay);
             AddEnemy(enemy.type);
-            i++;
+          //  Current++;
         }
         wave.IsEnd = true;
         yield break;
@@ -109,6 +108,7 @@ public class EnemyManager : MonoBehaviour
     public void AddMoneyForkillEnemy(EnemyVariable variable)
     {
         int i = enemyPrice.FindIndex(enemyPrice => enemyPrice.name == variable);
+        Debug.Log(i);
         MyEventManager.SendEnemyKilled(enemyPrice[i].price);
     }
 

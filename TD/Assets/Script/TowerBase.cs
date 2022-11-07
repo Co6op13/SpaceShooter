@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerBase :TowerLongRange
+public class TowerBase :Tower
 {
     private void OnDestroy()
     {

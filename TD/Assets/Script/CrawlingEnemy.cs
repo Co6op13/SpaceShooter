@@ -7,7 +7,6 @@ public class CrawlingEnemy : MonoBehaviour
 {
     [SerializeField] private EnemyVariable enemyType;
     [SerializeField] private Collider2D distanceAttack;
-    [SerializeField] private int priceToKill;
     [SerializeField] private int maxHP;
     private IAttackAction attackAction;
     private IMoveAction moveAction;

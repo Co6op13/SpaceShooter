@@ -9,6 +9,5 @@ public class RotateGFX : MonoBehaviour
     private void FixedUpdate()
     {
         sprite.transform.Rotate(rotateDirectionAndSpeed);
-        //transform.rotation = Quaternion.Euler(Vector3.right * Time.fixedDeltaTime);
     }
 }

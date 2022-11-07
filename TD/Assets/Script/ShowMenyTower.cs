@@ -5,12 +5,12 @@ using UnityEngine.EventSystems;
 
 public class ShowMenyTower : MonoBehaviour, ISelectable
 {
-    [SerializeField] private SpriteRenderer sprite;
-    [SerializeField] private Material selectedMaterial;
-    [SerializeField] private Material defaultMaterial;
+    //[SerializeField] private SpriteRenderer sprite;
+    //[SerializeField] private Material selectedMaterial;
+    //[SerializeField] private Material defaultMaterial;
     public void Select()
     {
-        sprite.material.color = Color.yellow;
+       // sprite.material.color = Color.yellow;
         //sprite.material = selectedMaterial;
         //GetComponent<MeshRenderer>().material.color = Color.red;
         UI.Instance.ShowTowerMeny();
@@ -19,19 +19,19 @@ public class ShowMenyTower : MonoBehaviour, ISelectable
 
     public void Deselect()
     {
-        sprite.material.color = Color.white;
+        //sprite.material.color = Color.white;
         //sprite.material = defaultMaterial;
         //GetComponent<MeshRenderer>().material.color = Color.white;
         UI.Instance.HideTowerMeny();        
     }
 
-    private void Start()
-    {
-        sprite = GetComponentInChildren<SpriteRenderer>();
-        //defaultMaterial = sprite.material;
+    //private void Start()
+    //{
+    //    sprite = GetComponentInChildren<SpriteRenderer>();
+    //    //defaultMaterial = sprite.material;
         
-        //GetComponent<MeshRenderer>().material.color = Color.white;
-    }
+    //    //GetComponent<MeshRenderer>().material.color = Color.white;
+    //}
     ////[SerializeField] UI UI;
     ////[SerializeField] TowerManager towerManager;    
     //[SerializeField] private SpriteRenderer sprite;

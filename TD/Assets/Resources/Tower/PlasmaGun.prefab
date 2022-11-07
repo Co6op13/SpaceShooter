@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 483840246462395006}
   - component: {fileID: 483840246462395002}
   - component: {fileID: 483840246462394946}
-  - component: {fileID: 4474855877757155447}
   m_Layer: 10
   m_Name: PlasmaGun
   m_TagString: Tower
@@ -154,19 +153,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &4474855877757155447
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 483840246462395000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ad82df8e5923154db539a0d75380d13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
 --- !u!1 &483840246597066570
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,7 +343,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9090594166329324984}
   - component: {fileID: 247629572121756927}
-  m_Layer: 3
+  - component: {fileID: 7596070619353594245}
+  m_Layer: 20
   m_Name: SelectableCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -405,6 +392,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &7596070619353594245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2560907038472691818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad82df8e5923154db539a0d75380d13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5136185396693677936
 GameObject:
   m_ObjectHideFlags: 0

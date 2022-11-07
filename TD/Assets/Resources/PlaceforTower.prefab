@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 369087830526644659}
   - component: {fileID: 369087830526644300}
-  m_Layer: 8
+  m_Layer: 20
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 369087831392552867}
   - component: {fileID: 369087831392552892}
   - component: {fileID: 369087831392552893}
-  m_Layer: 3
+  m_Layer: 20
   m_Name: PlaceforTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}

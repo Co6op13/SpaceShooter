@@ -5,7 +5,8 @@ using UnityEngine;
 public class SelectedManager : MonoBehaviour
 {
     [SerializeField] private float raycastMaxDistance = 50f;
-    [SerializeField] private LayerMask layer;
+    [SerializeField] private LayerMask layerForFindCollider;
+    [SerializeField] private LayerMask layerForSelect;
     [SerializeField] private GameObject selectGFX;
     public bool selecting = false;
     private Ray ray;
@@ -24,7 +25,6 @@ public class SelectedManager : MonoBehaviour
 
     private void Deselect()
     {
-        Debug.Log(toBeSelected);
         if (toBeSelected != null)
         {
             toBeSelected.Deselect();
@@ -35,8 +35,7 @@ public class SelectedManager : MonoBehaviour
     public void ConfirmSelection()
     {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        //Physics2D.CapsuleCastAll(ray.origin, ray.origin + ray.direction * raycastMaxDistance, 0f, ray.direction);
-        hits = Physics2D.RaycastAll(ray.origin, ray.direction, 10f, layer);
+        hits = Physics2D.RaycastAll(ray.origin, ray.direction, 10f, layerForFindCollider);
         Debug.DrawRay(ray.origin, ray.direction * raycastMaxDistance, Color.magenta, 3f);
         for (int i = 0; i < hits.Length; ++i)
         {
@@ -75,8 +74,9 @@ public class SelectedManager : MonoBehaviour
     private void FinalizeSelection()
     {
         Deselect();
-        toBeSelected = detectedObject;
-        EnableVisualSelected();
+        toBeSelected = detectedObject;        
+        if (layerForSelect >> toBeSelected.gameObject.layer == 1)            
+            EnableVisualSelected();
         toBeSelected.Select();
         Cleanup();
     }

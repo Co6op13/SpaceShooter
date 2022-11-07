@@ -1,4 +1,4 @@
-﻿internal interface ITower
+﻿public interface ITower
 {
     public void TowerSelected();
     public void TowerDeselected();

@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8961527191853759760}
   - component: {fileID: 8523397774537964238}
-  m_Layer: 3
+  - component: {fileID: 1600786753829064349}
+  m_Layer: 20
   m_Name: SelectableCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,6 +59,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1600786753829064349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114706809406728222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad82df8e5923154db539a0d75380d13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &483840246462395000
 GameObject:
   m_ObjectHideFlags: 0
@@ -71,7 +84,6 @@ GameObject:
   - component: {fileID: 483840246462394947}
   - component: {fileID: 483840246462395007}
   - component: {fileID: 483840246462395006}
-  - component: {fileID: 9085203853852908497}
   - component: {fileID: 483840246462395002}
   - component: {fileID: 483840246462394946}
   m_Layer: 10
@@ -167,19 +179,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHP: 1
---- !u!114 &9085203853852908497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 483840246462395000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ad82df8e5923154db539a0d75380d13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
 --- !u!50 &483840246462395002
 Rigidbody2D:
   serializedVersion: 4

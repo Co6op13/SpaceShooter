@@ -434,7 +434,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a27e47a4e849d74d9e52f905f17f826, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSelected: 0
   type: 3
   areaAttack: {fileID: 6646604692686243189}
   VisualAreaAttack: {fileID: 4460326049324399090}
@@ -603,6 +602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81817d06bc5cb444c89b18b7db0efd7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerGO: {fileID: 5374771564818427726}
 --- !u!1001 &1193441025885713114
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -23,12 +23,14 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
-        MyEventManager.OnTakeMoney.AddListener(AddMoney);
+        MyEventManager.OnGiveMoney.AddListener(AddMoney);
         MyEventManager.OnEnemyKilled.AddListener(AddMoney);
         MyEventManager.OnGetMoney.AddListener(GetMoney);
         MyEventManager.OnPauseDisable.AddListener(GamePauseDisable);
         MyEventManager.OnStartCurrentWave.AddListener(StartSpawnEnemyWaves);
     }
+
+
 
     private void StartSpawnEnemyWaves()
     {
@@ -68,18 +70,8 @@ public class GameManager : MonoBehaviour
 
     public void GamePauseDisable()
     {
-        //isPaused = false;
         Time.timeScale = 1;
     }
 
-    //private void OnApplicationPause(bool pause)
-    //{
-    //    isPaused = true;
-    //    Time.timeScale = 0;
-    //}
 
-    public void TimeScale()
-    {
-
-    }
 }

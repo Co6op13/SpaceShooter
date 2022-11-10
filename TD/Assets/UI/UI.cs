@@ -92,6 +92,7 @@ public class UI : MonoBehaviour
 
     private void SellTowerClicked()
     {
+        Debug.Break();
         MyEventManager.SendSellTower();
         ///towerManager.DestroyTower();
         HideAllMeny();

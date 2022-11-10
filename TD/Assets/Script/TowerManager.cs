@@ -59,11 +59,9 @@ public class TowerManager : MonoBehaviour
     }
     private void AddTower(TowersVariable variable)
     {
-        Debug.Log(variable.ToString());
         if (positionForNewTower != null)
         {
             int i = towerPrice.FindIndex(towerPrice => towerPrice.name == (variable));
-            Debug.Log(i);
             if (GameManager.Instance.GetAmountMoney() >= towerPrice[i].price)
             {
                 MyEventManager.SendOnGetMoney(towerPrice[i].price);
@@ -101,24 +99,21 @@ public class TowerManager : MonoBehaviour
 
     public void SellTower()
     {
-        Debug.Log(1);
         var type = selectedTower.GetComponent<Tower>().GetTowerType();
-        Debug.Log(2);
         var HP = selectedTower.GetComponent<IHPConttroller>();
         float percentHP = (1f / HP.MaxHP) * HP.CurrentHP;
         Debug.Log("maxHP = " + HP.MaxHP + "   currentHP = " + HP.CurrentHP + "   percent = " + percentHP);
         int index = towerPrice.FindIndex(towerPrice => towerPrice.name == (type));
         ////////////////////////////////////////////////////////////////////
-        MyEventManager.SendOnTakeMoney((int)(towerPrice[index].price * percentHP * 0.8f));
+        MyEventManager.SendOnGiveMoney((int)(towerPrice[index].price * percentHP * 0.8f));
         //////////////////////////
-        Debug.Log(3);
         Destroy(selectedTower);
     }
 
 
     public void RepairSelectedTower()
     {
-        Debug.Log(selectedTower);
+        Debug.Log("Доделать оптату за ремнт");
         selectedTower.GetComponentInParent<IHPConttrollerTower>().RepairTower(timeTick, hpRecoveryInOneTick);
     }
 }

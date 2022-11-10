@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TowerSelect : BaseSelected
-{
+{    
     public override void Select()
     {
-        tower.TowerSelected();
-        UI.Instance.ShowMenyTowerOptios();        
-        TowerManager.Instance.selectedTower = this.gameObject;
+        UI.Instance.ShowPanelTowerOptios();        
+        towerScript.TowerSelected();
+        TowerManager.Instance.selectedTower = towerGO;
     }
 
     public override void Deselect()
     {
-        if (tower != null)
-            tower.TowerDeselected();
-        UI.Instance.HideAllMeny();
+        UI.Instance.HideTowerMeny();
+        if (towerScript != null)
+            towerScript.TowerDeselected();
     }
 }

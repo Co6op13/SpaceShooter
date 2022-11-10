@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class HP : MonoBehaviour, IHPConttroller
 {
-    [SerializeField] private int currentHP = 1;
-    private int maxHP = 1;
+    [SerializeField] protected int currentHP = 1;
+    protected int maxHP = 1;
 
     public int CurrentHP { get => currentHP; }
     public int MaxHP { get => maxHP; }
+
 
     public void SetMaxHP(int hp)
     {
@@ -56,5 +57,5 @@ public class HP : MonoBehaviour, IHPConttroller
     virtual protected void Killed()
     {
         gameObject.SetActive(false);
-    }
+    }    
 }

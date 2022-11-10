@@ -1,4 +1,5 @@
-﻿public interface IHPConttroller
+﻿using System.Collections;
+public interface IHPConttroller
 {
     public int CurrentHP { get; }
     public int MaxHP { get; }

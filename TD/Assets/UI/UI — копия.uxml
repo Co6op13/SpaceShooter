@@ -27,23 +27,20 @@
             <ui:Button text="Main Meny" display-tooltip-when-elided="true" name="MainMeny" class="menu-button gameOwerMenyButton gameOwerMenyBytton" />
             <ui:Button text="Resume" display-tooltip-when-elided="true" name="Resume" class="menu-button gameOwerMenyButton gameOwerMenyBytton" style="top: 60px;" />
         </ui:VisualElement>
+        <ui:VisualElement name="PanelTowerOptions" style="width: 90%; height: 50%; -unity-background-image-tint-color: rgb(255, 255, 255); align-items: center; justify-content: flex-start; flex-direction: column; visibility: hidden; background-color: rgba(0, 0, 0, 0.2);">
+            <ui:Label text="Tower Options" display-tooltip-when-elided="true" style="width: 80%; height: 20%; bottom: auto; top: auto; font-size: 85px; align-items: flex-start; -unity-text-align: upper-center; -unity-font-style: bold; justify-content: flex-start;" />
+            <ui:VisualElement style="flex-direction: row; width: 95%; height: 80%; justify-content: center; align-items: center;">
+                <ui:Button text="UpgradeTower" display-tooltip-when-elided="true" name="UpgradeTower" class="menu-button gameOwerMenyButton gameOwerMenyBytton" style="width: 30%; height: 60%;" />
+                <ui:Button text="RepairTower" display-tooltip-when-elided="true" name="RepairTower" class="menu-button gameOwerMenyButton gameOwerMenyBytton" style="width: 30%; height: 60%;" />
+                <ui:VisualElement style="width: 5%;" />
+                <ui:Button text="DestroyTower" display-tooltip-when-elided="true" name="DestroyTower" class="menu-button gameOwerMenyButton gameOwerMenyBytton" style="width: 30%; height: 60%;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
     </ui:VisualElement>
-    <ui:VisualElement name="TowerMenu" style="transition-duration: 0.1s;">
-        <ui:VisualElement name="PanelCreateTower" style="width: 100%; height: 100%; flex-direction: row; position: absolute; visibility: visible; flex-wrap: nowrap; overflow: visible;">
-            <ui:VisualElement style="width: 10%;" />
-            <ui:Button text="addTowerGutling" display-tooltip-when-elided="true" name="Gutling" class="menu-button" style="height: 95%; width: 10%;" />
-            <ui:VisualElement style="width: 5%;" />
-            <ui:Button text="addTowerFlamethrower" display-tooltip-when-elided="true" name="Flamethrower" class="menu-button" style="height: 95%; opacity: 1; width: 10%;" />
-            <ui:VisualElement style="width: 5%;" />
-            <ui:Button text="addTowerPlasmaGun" display-tooltip-when-elided="true" name="PlasmaGun" class="menu-button" style="width: 10%;" />
-        </ui:VisualElement>
-        <ui:VisualElement name="PanelTowerOptions" style="width: 100%; height: 100%; flex-direction: row; position: absolute; visibility: visible; display: flex;">
-            <ui:VisualElement style="width: 10%;" />
-            <ui:Button text="RepairTower" display-tooltip-when-elided="true" name="RepairTower" class="menu-button" style="height: 95%; width: 10%;" />
-            <ui:VisualElement style="width: 5%;" />
-            <ui:Button text="UpgradeTower&#10;" display-tooltip-when-elided="true" name="UpgradeTower" class="menu-button" style="height: 95%; opacity: 1; width: 10%;" />
-            <ui:VisualElement style="width: 5%;" />
-            <ui:Button text="SellTower" display-tooltip-when-elided="true" name="SellTower" class="menu-button" style="width: 10%;" />
-        </ui:VisualElement>
+    <ui:VisualElement name="TowerMenu">
+        <ui:VisualElement style="width: 10%;" />
+        <ui:Button text="addTowerGutling" display-tooltip-when-elided="true" name="Gutling" class="menu-button" style="height: 95%; width: 10%;" />
+        <ui:Button text="addTowerFlamethrower" display-tooltip-when-elided="true" name="Flamethrower" class="menu-button" style="height: 95%; opacity: 1; width: 10%;" />
+        <ui:Button text="addTowerPlasmaGun" display-tooltip-when-elided="true" name="PlasmaGun" class="menu-button" style="width: 10%;" />
     </ui:VisualElement>
 </ui:UXML>

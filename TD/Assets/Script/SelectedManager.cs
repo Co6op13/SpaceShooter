@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SelectedManager : MonoBehaviour
 {
-    [SerializeField] private float raycastMaxDistance = 50f;
+   // [SerializeField] private float raycastMaxDistance = 50f;
     [SerializeField] private LayerMask layerForFindCollider;
     [SerializeField] private LayerMask layerForSelect;
     [SerializeField] private GameObject selectGFX;
@@ -36,14 +36,14 @@ public class SelectedManager : MonoBehaviour
     {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         hits = Physics2D.RaycastAll(ray.origin, ray.direction, 10f, layerForFindCollider);
-        Debug.DrawRay(ray.origin, ray.direction * raycastMaxDistance, Color.magenta, 3f);
+        //Debug.DrawRay(ray.origin, ray.direction * raycastMaxDistance, Color.magenta, 3f);
         for (int i = 0; i < hits.Length; ++i)
         {
             ISelectable selectable = hits[i].collider.GetComponentInParent<ISelectable>();
 
             if (selectable == null)
                 continue;
-            Debug.Log(selectable);
+            //Debug.Log(selectable);
             StartCoroutine(ProcessRaycastHit(selectable));
             return;
         }
@@ -55,7 +55,7 @@ public class SelectedManager : MonoBehaviour
     {
         detectedObject = null;
         yield return new WaitForFixedUpdate();
-        Debug.Log(selectable + " 22222");
+        //Debug.Log(selectable + " 22222");
         TryAddToDetected(selectable);
         FinalizeSelection();
         yield break;
@@ -63,7 +63,7 @@ public class SelectedManager : MonoBehaviour
 
     private void TryAddToDetected(ISelectable selectable)
     {
-        Debug.Log(selectable + " 3333");
+        //Debug.Log(selectable + " 3333");
         if (selectable == null)
             return;
         if (detectedObject == selectable)

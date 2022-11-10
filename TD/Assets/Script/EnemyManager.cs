@@ -108,7 +108,6 @@ public class EnemyManager : MonoBehaviour
     public void AddMoneyForkillEnemy(EnemyVariable variable)
     {
         int i = enemyPrice.FindIndex(enemyPrice => enemyPrice.name == variable);
-        Debug.Log(i);
         MyEventManager.SendEnemyKilled(enemyPrice[i].price);
     }
 

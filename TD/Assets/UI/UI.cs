@@ -1,18 +1,18 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
-
-
+using System;
 
 public class UI : MonoBehaviour
 {
     [SerializeField] TowerManager towerManager;
     [SerializeField] EnemyManager EnemyManager;
     VisualElement towerMenu;
+    VisualElement panelCreateTower;
+    VisualElement panelTowerOptions;
     VisualElement menu;
     VisualElement panelGameOwer;
     VisualElement panelPause;
-    VisualElement panelTowerOptions;
     Label moneyLabel;
     private const string AnimHideTowerMeny = "popAnimationHide";
     private const string AnimShowTowerMenu = "popAnimationShow";
@@ -41,6 +41,7 @@ public class UI : MonoBehaviour
         panelPause = root.Q<VisualElement>("PanelPause");
         moneyLabel = root.Q<Label>("MoneyLabel");
         panelTowerOptions = root.Q<VisualElement>("PanelTowerOptions");
+        panelCreateTower = root.Q<VisualElement>("PanelCreateTower");
         Button Flamethrower = root.Q<Button>("Flamethrower");
         Button Gutling = root.Q<Button>("Gutling");
         Button PlasmaGun = root.Q<Button>("PlasmaGun");
@@ -50,13 +51,15 @@ public class UI : MonoBehaviour
         Button restartG = root.Q<Button>("RestartG");
         Button restartP = root.Q<Button>("RestartP");
         Button pause = root.Q<Button>("Pause");
-        Button destroyTower = root.Q<Button>("DestroyTower");
+        Button sellTower = root.Q<Button>("SellTower");
+        Button repairTower = root.Q<Button>("RepairTower");
 
         MyEventManager.OnChencheAmountMony.AddListener(GetAmontMoney);
         MyEventManager.OnDestroyBase.AddListener(ShowMenyGameOwer);
         MyEventManager.OnPauseEnable.AddListener(ShowMenuPause);
 
-        destroyTower.clicked += DestroyTowerClicked;
+        repairTower.clicked += RepairTower;
+        sellTower.clicked += SellTowerClicked;
         //DestroyTower.clicked += Test;
         pause.clicked += PauseClicked;
         restartG.clicked += RestartSceneClicked;
@@ -71,6 +74,10 @@ public class UI : MonoBehaviour
         TestCreateEnemy2.clicked += EnemyManager.Instance.AddEnemy2;        
     }
 
+    private void RepairTower()
+    {
+        towerManager.RepairSelectedTower();
+    }
 
     private void ResumeClicked()
     {
@@ -83,9 +90,10 @@ public class UI : MonoBehaviour
         GameManager.Instance.GamePauseEnable(); 
     }
 
-    private void DestroyTowerClicked()
+    private void SellTowerClicked()
     {
-        towerManager.DestroyTower();
+        MyEventManager.SendSellTower();
+        ///towerManager.DestroyTower();
         HideAllMeny();
     }
 
@@ -99,29 +107,6 @@ public class UI : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void ShowTowerMeny()
-    {
-        isShowMenuTower = true;
-        Debug.Log("show");
-        towerMenu.EnableInClassList(AnimHideTowerMeny, false);
-        towerMenu.EnableInClassList(AnimShowTowerMenu, true);
-    }
-
-    public void HideTowerMeny()
-    {
-        isShowMenuTower = false;
-        Invoke("TryHideTowerMeny", 0.2f); // so that the panel TowerMenu does not jerk down 
-    }
-
-    private void TryHideTowerMeny()
-    {
-        if (isShowMenuTower == false)
-        {
-            Debug.Log("Hide");
-            towerMenu.EnableInClassList(AnimHideTowerMeny, true);
-            towerMenu.EnableInClassList(AnimShowTowerMenu, false);
-        }
-    }
 
     public void ShowMenyGameOwer()
     {
@@ -135,6 +120,7 @@ public class UI : MonoBehaviour
         panelGameOwer.style.visibility = Visibility.Hidden;
         panelPause.style.visibility = Visibility.Hidden;
         panelTowerOptions.style.visibility = Visibility.Hidden;
+        panelCreateTower.style.visibility = Visibility.Hidden;
     }
 
     public void ShowMenuPause()
@@ -143,16 +129,55 @@ public class UI : MonoBehaviour
         panelPause.style.visibility = Visibility.Visible;
 
     }
-
-    public void ShowMenyTowerOptios()
-    {
-
-        panelTowerOptions.style.visibility = Visibility.Visible;
-        // menu.style.visibility = Visibility.Visible;
-    }
-
     public void GetAmontMoney()
     {
         moneyLabel.text = GameManager.Instance.GetAmountMoney().ToString();
     }
+
+    public void ShowPanelTowerOptios()
+    {
+        isShowMenuTower = true;
+        //Debug.Log("show");
+        panelTowerOptions.style.visibility = Visibility.Visible;
+        panelCreateTower.style.visibility = Visibility.Hidden;
+        PopupTowerMenu();
+        // menu.style.visibility = Visibility.Visible;
+    }
+
+    public void ShowPanelCreateTower()
+    {
+        isShowMenuTower = true;
+        //Debug.Log("show");
+        panelCreateTower.style.visibility = Visibility.Visible;
+        panelTowerOptions.style.visibility = Visibility.Hidden;
+        PopupTowerMenu();
+    }
+
+    private void PopupTowerMenu()
+    {
+        towerMenu.EnableInClassList(AnimHideTowerMeny, false);
+        towerMenu.EnableInClassList(AnimShowTowerMenu, true);
+    }
+
+    private void PopDonwTowermenu()
+    {
+        Invoke("TryHideTowerMeny", 0.2f); // so that the panel TowerMenu does not jerk down 
+    }
+
+    public void HideTowerMeny()
+    {
+        isShowMenuTower = false;
+        PopDonwTowermenu();
+    }
+    private void TryHideTowerMeny()
+    {
+        if (isShowMenuTower == false)
+        {
+            //Debug.Log("Hide");
+            towerMenu.EnableInClassList(AnimHideTowerMeny, true);
+            towerMenu.EnableInClassList(AnimShowTowerMenu, false);
+        }
+
+    }
+
 }

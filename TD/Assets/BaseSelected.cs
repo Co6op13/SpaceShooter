@@ -4,22 +4,24 @@ using UnityEngine;
 
 public class BaseSelected : MonoBehaviour, ISelectable
 {
-    protected ITower tower;
+    [SerializeField] protected GameObject towerGO;
+    protected ITower towerScript;
     
     public virtual void Select()
     {
-        tower.TowerSelected();
+        towerScript.TowerSelected();
     }
 
     public virtual void Deselect()
     {
-        if (tower != null)
-            tower.TowerDeselected();
+        if (towerScript != null)
+            towerScript.TowerDeselected();
     }
 
     protected void Start()
     {
-        tower = GetComponentInParent<ITower>();
+      
+        towerScript = GetComponentInParent<ITower>();
     }
 
 }

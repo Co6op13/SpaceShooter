@@ -6,7 +6,7 @@ using UnityEngine;
 public class Tower : MonoBehaviour, ITower
 {
 
-    [SerializeField] private bool isSelected;
+   // [SerializeField] private bool isSelected;
     [SerializeField] private TowersVariable type;
     [SerializeField] private CircleCollider2D areaAttack;
     [SerializeField] private GameObject VisualAreaAttack;
@@ -121,6 +121,11 @@ public class Tower : MonoBehaviour, ITower
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, distanceAttack);
+    }
+
+    private void OnDestroy()
+    {
+        MyEventManager.SendDestroyTower();
     }
 
 
